@@ -4,15 +4,22 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            StartupFunction();
+            //Next function
+        }
 
-            /* 
-            Generate Villagers 100 - 2000 need to interact with eachother(use console commands? WPF)
-            Villagers spawn with random items
-            Villager names and ages need to be randomized
-            Villagers need random personalities and charater traits
-            Generate random house, stores and other busnisses
-            */
+        public static void StartupFunction()
+        {
+            Console.WriteLine("                                                 _");
+            Console.WriteLine(" __                   ___                       ( )");
+            Console.WriteLine("|\"\"|  ___    _   __  |\"\"\"|  __                   `");
+            Console.WriteLine("|\"\"| |\"\"\"|  |\"| |\"\"| |\"\"\"| |\"\"|        _._ _");
+            Console.WriteLine("|\"\"| |\"\"\"|  |\"| |\"\"| |\"\"\"| |\"\"|       (__((_(");
+            Console.WriteLine("|\"\"| |\"\"\"|  |\"| |\"\"| |\"\"\"| |\"\"|      \\'-:--:-.");
+            Console.WriteLine("\"'''\"''\"'\"\"'\"\"\"''\"''''\"\"\"'\"\"'\"\"'~~~~~~'-----'~~~~  ");
+            Console.WriteLine("       Press any button to start");
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
