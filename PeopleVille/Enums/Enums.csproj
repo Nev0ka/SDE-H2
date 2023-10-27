@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Enums\Enums.csproj" />
-    <ProjectReference Include="..\RNG\RNG.csproj" />
-  </ItemGroup>
-
 </Project>
