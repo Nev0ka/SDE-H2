@@ -9,6 +9,7 @@ namespace Villager.Inventory
 {
     public interface IItem
     {
+        public int ParentID { get; set; }
         public string Name { get; set; }
         public int Value { get; set; }
         public Action UseAction { get; set; }
