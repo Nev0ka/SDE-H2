@@ -7,6 +7,7 @@
         public int Value { get; set; }
         public Action Buy { get; set; }
         public List<ItemsLibary.Items> Items { get; set; } = new();
+        public int Location { get; set; }
 
         public Store(int id, string storeName, int value)
         {
