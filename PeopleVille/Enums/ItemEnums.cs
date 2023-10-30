@@ -8,7 +8,6 @@ namespace Enums
 {
     public enum ItemEnums
     {
-        Money,
         Knife,
         Hat,
         Watch,

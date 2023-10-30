@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Enums;
 
-namespace Villager.Inventory
+namespace ItemsLibary
 {
     public interface IItem
     {
         public int ParentID { get; set; }
         public string Name { get; set; }
         public int Value { get; set; }
-        public Action UseAction { get; set; }
+        public Action<string> UseAction { get; set; }
         public ItemRarityEnum ItemRarity { get; set; }
         public ItemEnums TypeOfItem { get; set; }
     }
