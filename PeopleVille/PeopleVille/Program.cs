@@ -1,10 +1,20 @@
-﻿namespace PeopleVille
+﻿using Logging;
+using Simulation;
+using Village;
+
+namespace PeopleVille
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             StartupFunction();
+            Simulation.Simulation sim = new();
+            sim.StartUpSim();
+            foreach (var item in LogEvents.LogOfEvent)
+            {
+                Console.WriteLine(item);
+            }
             //Next function
         }
 
