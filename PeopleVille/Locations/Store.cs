@@ -15,9 +15,9 @@
             Value = value;
         }
 
-        public void BuyItem(int itemId, int villagerId)
+        public ItemsLibary.Items? BuyItem(int itemId, int villagerId)
         {
-
+            return null;
         }
     }
 }
