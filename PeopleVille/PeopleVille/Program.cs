@@ -10,7 +10,8 @@ namespace PeopleVille
         {
             StartupFunction();
             Simulation.Simulation sim = new();
-            sim.StartUpSim();
+            Village.Village village = new();
+            sim.StartUpSim(village);
             foreach (var item in LogEvents.LogOfEvent)
             {
                 Console.WriteLine(item);
