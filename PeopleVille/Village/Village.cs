@@ -1,11 +1,12 @@
 ﻿using Locations;
+using System.Security.Cryptography.X509Certificates;
 using Villager;
 
 namespace Village
 {
     public class Village
     {
-        public List<ILocation> Locations { get; set; } = new();
+        public List<ILocation> LocationsInVillage { get; set; } = new();
         public List<IVillager> Villagers { get; set; } = new();
 
         int count = 0;
@@ -20,7 +21,12 @@ namespace Village
                 if ((count % 4) == 0)
                 {
                     House house = new(count*1000,count,name,count);
-                    Locations.Add(house);
+                    LocationsInVillage.Add(house);
+                }
+                if ((count % 250) == 0)
+                {
+                    Store store = new(count*754,"walmart",count);
+                    LocationsInVillage.Add(store);
                 }
             }
         }

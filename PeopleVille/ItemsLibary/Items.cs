@@ -3,6 +3,7 @@ using RNG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace ItemsLibary
 {
     public class Items : IItem
     {
+        private static int count = 0;
         public int ID { get; set; }
         public int ParentID { get; set; }
         public string Name { get; set; }
@@ -19,8 +21,9 @@ namespace ItemsLibary
         public ItemRarityEnum ItemRarity { get; set; }
         public ItemEnums TypeOfItem { get; set; }
 
-        public Items(int parentID, ItemEnums type, ItemRarityEnum itemRarity)
+        public Items(int id,int parentID, ItemEnums type, ItemRarityEnum itemRarity)
         {
+            ID = id;
             ParentID = parentID;
             Name = $"{itemRarity.ToString()} {type.ToString()}";
             ItemRarity = itemRarity;
@@ -34,7 +37,7 @@ namespace ItemsLibary
             Action<string> action = NoAction;
             switch (type)
             {
-                case ItemEnums.Knife: // stabby stabby
+                case ItemEnums.Knife:
                     break;
                 case ItemEnums.Hat:
                     break;
@@ -64,12 +67,18 @@ namespace ItemsLibary
             int lowest = 0;
             var random = new Random((int)DateTime.Now.Ticks);
             lowest = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Min();
-            max = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Max();
+            max = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Max()+1;
             int ItemType = random.Next(lowest, max);
             lowest = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Min();
-            max = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Max();
+            max = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Max()+1;
             int rarity = random.Next(lowest, max);
-            return new Items(parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity);
+            count++;
+            return new Items(count,parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity);
+        }
+
+        public override string ToString()
+        {
+            return $"{this.ID} {this.Name}";
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Villager
             Items.GetNewRandomItem(id),
             Items.GetNewRandomItem(id),
             Items.GetNewRandomItem(id),
+            Items.GetNewRandomItem(id),
+            Items.GetNewRandomItem(id),
             };
         }
     }
