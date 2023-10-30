@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Locations\Locations.csproj" />
     <ProjectReference Include="..\Villager\Villager.csproj" />
-    <ProjectReference Include="..\Village\Locations.csproj" />
+    <ProjectReference Include="..\Village\Village.csproj" />
   </ItemGroup>
 
 </Project>
