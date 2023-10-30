@@ -1,5 +1,4 @@
 ﻿using Enums;
-using RNG;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,7 @@ namespace Village
         public string Name { get; set; }
         public int Value { get; set; }
         public Action Buy { get; set; }
-        public List<string> Items { get; set; }
+        public List<ItemsLibary.Items> Items { get; set; }
 
         public Store(int id, string storeName, int value)
         {
