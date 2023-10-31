@@ -1,5 +1,7 @@
 ﻿using Logging;
 using Simulation;
+using System.Data;
+using System.Runtime.CompilerServices;
 using System.Xml;
 using Village;
 
@@ -13,22 +15,37 @@ namespace PeopleVille
             Simulation.Simulation sim = new();
             Village.Village village = new();
             sim.StartUpSim(village);
+            int day = 0;
             while (true)
             {
-                foreach (var item in LogEvents.LogOfEvent)
+                //foreach (var item in LogEvents.LogOfEvent)
+                //{
+                //    Console.WriteLine(item);
+                //    Console.WriteLine("\n");
+                //}
+
+                Console.WriteLine($"Day {day}\n");
+                foreach (var item in LogEvents.ListOfEventsAndDay)
                 {
-                    Console.WriteLine(item);
-                    Console.WriteLine("\n");
+                    if (item.Key == day)
+                    {
+                        Console.WriteLine(item.Value + "\n");
+                    }
                 }
+                day++;
                 Console.WriteLine("Press any button to run a event. \nPress escape to stop");
-                var key = Console.ReadKey();
+                var tabKey = Console.ReadKey();
                 Console.Clear();
-                if (key.Key == ConsoleKey.Escape)
+                if (tabKey.Key == ConsoleKey.Escape)
                 {
                     break;
                 }
-                sim.RunEvents(village);
-                Thread.Sleep(100);
+                sim.RunEvents(village,day);
+                if (sim.AllVillagersIsDead)
+                {
+                    Console.WriteLine("All the villager died.");
+                    break;
+                }
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using Logging;
+﻿using ItemsLibary;
+using Logging;
 using System.Net.NetworkInformation;
 using System.Reflection.Metadata.Ecma335;
 using Villager;
@@ -22,6 +23,7 @@ namespace EventsLibary
         private void NaturelDiesaterEvent()
         {
             Random random = new();
+            int numberOfVillagerBefore = ListOfVillagers.Count;
             int NumberOfVillagerToDied = random.Next(1,ListOfVillagers.Count+1);
             List<IVillager> ListToWithoutDeadPeople = ListOfVillagers.ToList();
             for (int i = 0;i < NumberOfVillagerToDied;i++)
@@ -29,7 +31,7 @@ namespace EventsLibary
                 ListToWithoutDeadPeople.Remove(ListOfVillagers[i]);
             }
             ListOfVillagers = ListToWithoutDeadPeople.ToList();
-            LogEvents.Log($"{NumberOfVillagerToDied} Died in a naturel diesater. \nEverybody who survived griefed and morned over their fellow villagers.", NumberOfDays);
+            LogEvents.Log($"{NumberOfVillagerToDied} Died in a naturel diesater. {numberOfVillagerBefore - NumberOfVillagerToDied} survived. \nEverybody who survived griefed and morned over their fellow villagers.", NumberOfDays);
         }
 
         private void HyggeWasteTimeEvent()
@@ -60,7 +62,7 @@ namespace EventsLibary
         public Action GetRandomAction()
         {
             Random rand = new();
-            int numberForEvent = rand.Next(0,101);
+            int numberForEvent = rand.Next(0,106);
             if (numberForEvent >= 0)
             {
                 if (numberForEvent >= 51)
@@ -86,6 +88,30 @@ namespace EventsLibary
                 return NormaleWorkDayEvent;
             }
             return NormaleWorkDayEvent;
+        }
+
+        public void Trade(IVillager villager1,IVillager villager2)
+        {
+            if (villager1.Inventory.Count == 0)
+            {
+                return;
+            }
+            if (villager2.Inventory.Count == 0)
+            {
+                return;
+            }
+
+            Random rnd = new();
+            int slotForVillager1 = rnd.Next(0,villager1.Inventory.Count);
+            int slotForVillager2 = rnd.Next(0,villager2.Inventory.Count);
+            Items itemFromVillager1 = villager1.Inventory[slotForVillager1];
+            Items itemFromVillager2 = villager2.Inventory[slotForVillager2];
+            villager1.Inventory.Remove(itemFromVillager1);
+            villager2.Inventory.Remove(itemFromVillager2);
+            villager1.Inventory.Add(itemFromVillager2);
+            villager2.Inventory.Add(itemFromVillager1);
+            LogEvents.Log($"{villager1.Name} and {villager2.Name} found eachother.");
+            LogEvents.Log($"{villager1.Name} just traded {itemFromVillager1.ToString()} with {villager2.Name} for {itemFromVillager2.ToString()}",NumberOfDays);
         }
     }
 }

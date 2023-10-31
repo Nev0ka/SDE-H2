@@ -78,7 +78,7 @@ namespace ItemsLibary
 
         public override string ToString()
         {
-            return $"{this.ID} {this.Name}";
+            return $"{this.Name}";
         }
     }
 }
