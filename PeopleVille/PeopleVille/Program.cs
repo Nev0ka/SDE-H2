@@ -1,5 +1,6 @@
 ﻿using Logging;
 using Simulation;
+using System.Xml;
 using Village;
 
 namespace PeopleVille
@@ -12,11 +13,23 @@ namespace PeopleVille
             Simulation.Simulation sim = new();
             Village.Village village = new();
             sim.StartUpSim(village);
-            foreach (var item in LogEvents.LogOfEvent)
+            while (true)
             {
-                Console.WriteLine(item);
+                foreach (var item in LogEvents.LogOfEvent)
+                {
+                    Console.WriteLine(item);
+                    Console.WriteLine("\n");
+                }
+                Console.WriteLine("Press any button to run a event. \nPress escape to stop");
+                var key = Console.ReadKey();
+                Console.Clear();
+                if (key.Key == ConsoleKey.Escape)
+                {
+                    break;
+                }
+                sim.RunEvents(village);
+                Thread.Sleep(100);
             }
-            //Next function
         }
 
         public static void StartupFunction()
