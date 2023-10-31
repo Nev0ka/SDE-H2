@@ -100,6 +100,16 @@ namespace EventsLibary
             {
                 return;
             }
+            if (villager1.Location - villager2.Location >= 200)
+            {
+                villager1.Location -= 200;
+                villager2.Location -= 200;
+                return;
+            }
+            else
+            {
+                villager2.Location = villager1.Location;
+            }
 
             Random rnd = new();
             int slotForVillager1 = rnd.Next(0,villager1.Inventory.Count);

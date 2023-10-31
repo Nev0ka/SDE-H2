@@ -43,7 +43,9 @@ namespace PeopleVille
                 sim.RunEvents(village,day);
                 if (sim.AllVillagersIsDead)
                 {
+                    Console.WriteLine($"Day {day}\n");
                     Console.WriteLine("All the villager died.");
+                    Thread.Sleep(12500);
                     break;
                 }
             }
