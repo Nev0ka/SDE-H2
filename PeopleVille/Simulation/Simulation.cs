@@ -23,8 +23,11 @@ namespace Simulation
         {
             NumberOfDays = numberOfDays;
             Events events = new(village.Villagers, NumberOfDays);
-            Trade trade = new(RunTradeEvent);
-            trade(village);
+            if (village.Villagers.Count != 1)
+            {
+                Trade trade = new(RunTradeEvent);
+                trade(village);
+            }
             Actions ActionDelegate = new(events.GetRandomAction());
             ActionDelegate.Invoke();
             if (events.ListOfVillagers.Count != village.Villagers.Count)
