@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Village\Village.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="peoplevillestory.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
