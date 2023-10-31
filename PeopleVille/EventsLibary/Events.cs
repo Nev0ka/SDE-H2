@@ -71,7 +71,7 @@ namespace EventsLibary
                     {
                         if (numberForEvent >= 75)
                         {
-                            if (numberForEvent >= 87)
+                            if (numberForEvent >= 95)
                             {
                                 if (numberForEvent >= 100)
                                 {
