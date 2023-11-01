@@ -65,7 +65,7 @@ namespace ItemsLibary
         {
             int max = 0;
             int lowest = 0;
-            var random = new Random((int)DateTime.Now.Ticks);
+            var random = new Random();
             lowest = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Min();
             max = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Max()+1;
             int ItemType = random.Next(lowest, max);

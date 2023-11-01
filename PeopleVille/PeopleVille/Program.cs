@@ -24,7 +24,7 @@ namespace PeopleVille
                 //    Console.WriteLine("\n");
                 //}
 
-                Console.WriteLine($"Day {day}\n");
+                Console.WriteLine($"Day: {day} villager: {village.Villagers.Count}\n");
                 foreach (var item in LogEvents.ListOfEventsAndDay)
                 {
                     if (item.Key == day)

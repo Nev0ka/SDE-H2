@@ -51,7 +51,31 @@ namespace EventsLibary
 
         private void StoryTellingEvent()
         {
-            LogEvents.Log("Everybody gattered around ChatGBT then it started telling a story and it went like:\n" + File.ReadAllText(Environment.CurrentDirectory + "/peoplevillestory.txt"), NumberOfDays);
+            Random random = new();
+            int numberForStory = random.Next(0,3);
+            string path = string.Empty;
+            switch (numberForStory)
+            {
+                case 0:
+                    {
+                        path = Environment.CurrentDirectory + "/peoplevillestory.txt";
+                        break;
+                    }
+                case 1:
+                    {
+                        path = Environment.CurrentDirectory + "/horrorstory.txt";
+                        break;
+                    }
+                case 2:
+                    {
+                        path = Environment.CurrentDirectory + "/scifistory.txt";
+                        break;
+                    }
+                default:
+                    path = Environment.CurrentDirectory + "/peoplevillestory.txt";
+                    break;
+            }
+            LogEvents.Log("Everybody gattered around ChatGBT then it started telling a story and it went like:\n" + File.ReadAllText(path), NumberOfDays);
         }
 
         private void NormaleWorkDayEvent()
