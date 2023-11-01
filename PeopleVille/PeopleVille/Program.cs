@@ -3,6 +3,7 @@ using Simulation;
 using System.Data;
 using System.Runtime.CompilerServices;
 using System.Xml;
+using System.Xml.Serialization;
 using Village;
 
 namespace PeopleVille
@@ -11,6 +12,7 @@ namespace PeopleVille
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             StartupFunction();
             Simulation.Simulation sim = new();
             Village.Village village = new();
@@ -45,7 +47,25 @@ namespace PeopleVille
                 {
                     Console.WriteLine($"Day {day}\n");
                     Console.WriteLine("All the villager died.");
-                    Thread.Sleep(12500);
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                    Console.WriteLine("\n\n");
+                    Console.WriteLine("  ██████████    ░░          ██      ██████████                  ██████████                ░░    ██████████░░  ");
+                    Console.WriteLine("    ░░▒▒▒▒  ▒▒  ██          ██      ██████▒▒                    ████▒▒        ██░░        ██    ██        ░░  ");
+                    Console.WriteLine("      ▒▒██      ██          ██      ██                          ██            ██  ▒▒      ██    ██          ██");
+                    Console.WriteLine("        ▒▒      ██▓▓██████████      ██    ██                    ▒▒    ▒▒      ██    ░░    ██    ██          ██");
+                    Console.WriteLine("        ██      ██▓▓██▒▒    ██      ████████▒▒                  ██████████    ██        ████    ██        ▒▒██");
+                    Console.WriteLine("        ██      ██          ██      ██                          ██            ██      ░░██▒▒    ██      ░░████");
+                    Console.WriteLine("        ██      ██          ██    ░░██                          ██            ██        ░░      ██    ▒▒████  ");
+                    Console.WriteLine("        ██      ██          ██      ██▓▓██████                  ██████████                      ██████████    ");
+                    Thread.Sleep(3500);
+                    Console.WriteLine("\n\n                                           Press enter to continue");
+                    Console.ReadLine();
+                    Console.WriteLine("Tab \"R\" to restart");
+                    if (Console.ReadKey().Key == ConsoleKey.R)
+                    {
+                        Main(args);
+                    }
                     break;
                 }
             }
