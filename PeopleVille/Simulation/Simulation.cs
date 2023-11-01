@@ -13,23 +13,31 @@ namespace Simulation
         public bool AllVillagersIsDead { get; set; } = false;
         delegate void Actions();
         delegate void Trade(Village.Village village);
+        private ItemsActions itemsActions;
 
         public void StartUpSim(Village.Village village)
         {
             village.CreateVillage();
-            ItemsActions itemsActions = new(NumberOfDays,village.Villagers);
+            itemsActions = new(NumberOfDays,village.Villagers);
+            itemsActions.AddActionToItems();
             LogEvents.Log($"Village create number of villagers:{village.Villagers.Count}, number of locations: {village.LocationsInVillage.Count}");
         }
 
         public void RunEvents(Village.Village village,int numberOfDays)
         {
             NumberOfDays = numberOfDays;
+            itemsActions.Days = numberOfDays;
+            itemsActions.ListOfVillagers = village.Villagers;
+            Random rnd = new();
             Events events = new(village.Villagers, NumberOfDays);
             if (village.Villagers.Count != 1)
             {
                 Trade trade = new(RunTradeEvent);
                 trade(village);
             }
+            int indexOfItemToUse = rnd.Next(0, village.Villagers.Count);
+            itemsActions.villager = village.Villagers[indexOfItemToUse];
+            RunItemAction(village.Villagers[indexOfItemToUse]);
             Actions ActionDelegate = new(events.GetRandomAction());
             ActionDelegate.Invoke();
             if (events.ListOfVillagers.Count != village.Villagers.Count)
@@ -60,6 +68,20 @@ namespace Simulation
                     }
                     events.Trade(village.Villagers[villagernumber1], village.Villagers[villagernumber2]);
                 }
+            }
+        }
+
+        public void RunItemAction(IVillager villager)
+        {
+            Random rnd = new(); 
+            if(villager.Inventory.Count == 0)
+            {
+                return;
+            }
+
+            if(rnd.Next(0, 100) >= 75)
+            {
+                villager.Inventory[rnd.Next(0, villager.Inventory.Count)].UseAction();
             }
         }
     }
