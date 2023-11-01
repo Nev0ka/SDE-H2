@@ -1,4 +1,5 @@
 ﻿using Enums;
+using Locations;
 using Logging;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Villager;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace ItemsLibary
 {
@@ -14,6 +16,7 @@ namespace ItemsLibary
         public int Days { get; set; }
         public  IVillager villager { get; set; }
         public List<IVillager> ListOfVillagers { get; set; } = new();
+        public List<ILocation> ListOfLocations { get; set; } = new();
 
         public ItemsActions(int day, List<IVillager> villagers)
         {
@@ -21,9 +24,9 @@ namespace ItemsLibary
             ListOfVillagers = villagers;
         }
 
-        public void KillThatCat()
+        public void Nothing()
         {
-            LogEvents.Log($"{villager.Name} kills a stray cat.", Days);
+
         }
 
         public void MurderVillager()
@@ -33,58 +36,67 @@ namespace ItemsLibary
             int numberOfVillagerToBeMurdered = random.Next(1, 5);
             List<IVillager> ListWithoutDeadPeople = ListOfVillagers.ToList();
             List<string> DeadPeople = new();
-            for (int i = random.Next(0, numberOfVillagerBeforeMurder - numberOfVillagerToBeMurdered); i < numberOfVillagerToBeMurdered; i++)
+            if (numberOfVillagerBeforeMurder <= numberOfVillagerToBeMurdered)
             {
-                ListWithoutDeadPeople.Remove(ListOfVillagers[i]);
-                DeadPeople.Add(ListOfVillagers[i].Name);
+                DeadPeople = ListWithoutDeadPeople.Select(x => x.Name).ToList();
+                ListWithoutDeadPeople.Clear();
             }
-            ListWithoutDeadPeople.Remove(villager);
-            ListOfVillagers = ListWithoutDeadPeople.ToList();
+            else
+            {
+                int startIndex = random.Next(0, numberOfVillagerBeforeMurder - numberOfVillagerToBeMurdered);
+                for (int i = startIndex; i < startIndex + numberOfVillagerToBeMurdered; i++)
+                {
+                    ListWithoutDeadPeople.Remove(ListOfVillagers[i]);
+                    DeadPeople.Add(ListOfVillagers[i].Name);
+                }
+                ListWithoutDeadPeople.Remove(villager);
+                ListOfVillagers = ListWithoutDeadPeople.ToList();
+            }
             foreach (var person in DeadPeople)
             {
                 LogEvents.Log($"{villager.Name} killed {person}.", Days);
             }
-            LogEvents.Log($"{villager.Name} commited suicide after killing all those people. \n{numberOfVillagerBeforeMurder - numberOfVillagerToBeMurdered} survived. \nEverybody who survived griefed and morned over their fellow villagers.", Days);
+            LogEvents.Log($"{villager.Name} committed suicide after killing all those people. \n{numberOfVillagerBeforeMurder - numberOfVillagerToBeMurdered - 1} survived. \nEverybody who survived griefed and morned over their fellow villagers.", Days);
         }
 
         public void CutThingsWithKnife()
         {
-            LogEvents.Log($"{villager.Name} starts cutting a piece of wood with a knife.", Days);
+            LogEvents.Log($"{villager.Name} started cutting a piece of wood with a knife.", Days);
         }
 
         public void SeeWhatTimeItIs()
         {
-            LogEvents.Log($"{villager.Name} check's their watch to see what time it is.");
+            LogEvents.Log($"{villager.Name} checked their watch to see what time it is.");
         }
 
         public void PlayWithHat()
         {
-            LogEvents.Log($"{villager.Name} play's with a hat.", Days);
+            LogEvents.Log($"{villager.Name} played with a hat.", Days);
         }
 
         public void WearHat()
         {
-            LogEvents.Log($"{villager.Name} put's a hat on, and is looking very good.", Days);
+            LogEvents.Log($"{villager.Name} put a hat on, and is looking very good.", Days);
         }
 
         public void WearGlasses()
         {
-            LogEvents.Log($"{villager.Name} put's a pair of glasses on. Now the villager can see again.", Days);
+            LogEvents.Log($"{villager.Name} put a pair of glasses on. Now the {villager.Name} can see again.", Days);
         }
 
         public void FarmWithPitchfork()
         {
-            LogEvents.Log($"{villager.Name} is using the pitchfork for farming purposes only.", Days);
+            LogEvents.Log($"{villager.Name} used the pitchfork for farming purposes only.", Days);
         }
 
         public void ReadBook()
         {
-            LogEvents.Log($"{villager.Name} finds a book and starts reading it.", Days);
+            LogEvents.Log($"{villager.Name} found a book and starts reading it.", Days);
         }
 
         public Action GetAction(ItemEnums type)
         {
-            Action action = KillThatCat;
+            Action action = Nothing;
             Random rand = new();
             int numberForHowToUseKnife = rand.Next(0, 100);
             int numberForWhatToDoWithHat = rand.Next(0, 10);
@@ -139,6 +151,18 @@ namespace ItemsLibary
                 {
                     item.UseAction = GetAction(item.TypeOfItem);
                     villager.Inventory[count] = item;
+                    count++;
+                }
+            }
+
+            foreach (var location in ListOfLocations.Where(x => x.Type == LocationsTypeEnums.Store))
+            {
+                int count = 0;
+                Store store = (Store)location;
+                foreach (var items in store.StoreInventory.ToList())
+                {
+                    items.UseAction = GetAction(items.TypeOfItem);
+                    store.StoreInventory[count] = items;
                     count++;
                 }
             }

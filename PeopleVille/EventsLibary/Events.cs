@@ -4,6 +4,7 @@ using Logging;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Reflection.Metadata.Ecma335;
+using Village;
 using Villager;
 
 namespace EventsLibary
@@ -84,10 +85,16 @@ namespace EventsLibary
             LogEvents.Log("Everbody went to work and enjoyed a normal day of work.", NumberOfDays);
         }
 
+        public void KillThatCat()
+        {
+            Random random = new();
+            LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} kills a stray cat.", NumberOfDays);
+        }
+
         public Action GetRandomAction()
         {
             Random rand = new();
-            int numberForEvent = rand.Next(0,106);
+            int numberForEvent = rand.Next(0,111);
             if (numberForEvent >= 0)
             {
                 if (numberForEvent >= 51)
@@ -100,7 +107,11 @@ namespace EventsLibary
                             {
                                 if (numberForEvent >= 100)
                                 {
-                                    return NaturelDiesaterEvent;
+                                    if (numberForEvent >= 105)
+                                    {
+                                        return NaturelDiesaterEvent;
+                                    }
+                                    return KillThatCat;
                                 }
                                 return StoryTellingEvent;
                             }

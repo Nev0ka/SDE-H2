@@ -30,7 +30,6 @@ namespace Simulation
             itemsActions.Days = numberOfDays;
             itemsActions.ListOfVillagers = village.Villagers;
             Random rnd = new();
-            Events events = new(village.Villagers, NumberOfDays);
             if (village.Villagers.Count != 1)
             {
                 Trade trade = new(RunTradeEvent);
@@ -39,7 +38,11 @@ namespace Simulation
             int indexOfItemToUse = rnd.Next(0, village.Villagers.Count);
             itemsActions.villager = village.Villagers[indexOfItemToUse];
             RunItemAction(village.Villagers[indexOfItemToUse]);
-
+            if (village.Villagers != itemsActions.ListOfVillagers)
+            {
+                village.Villagers = itemsActions.ListOfVillagers;
+            }
+            Events events = new(village.Villagers, NumberOfDays);
             RunStoreEvent(village.Villagers[rnd.Next(0,village.Villagers.Count)], (Store)village.LocationsInVillage.Where(x => x.Type == Enums.LocationsTypeEnums.Store).ToList()[rnd.Next(0, village.LocationsInVillage.Where(x => x.Type == Enums.LocationsTypeEnums.Store).Count())], events);
 
             Actions ActionDelegate = new(events.GetRandomAction());
