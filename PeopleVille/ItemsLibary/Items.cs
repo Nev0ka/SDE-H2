@@ -17,11 +17,11 @@ namespace ItemsLibary
         public int ParentID { get; set; }
         public string Name { get; set; }
         public int Value { get; set; }
-        public Action UseAction { get; set; }
+        public Action? UseAction { get; set; }
         public ItemRarityEnum ItemRarity { get; set; }
         public ItemEnums TypeOfItem { get; set; }
 
-        public Items(int id, int parentID, ItemEnums type, ItemRarityEnum itemRarity, Action action)
+        public Items(int id, int parentID, ItemEnums type, ItemRarityEnum itemRarity)
         {
             ID = id;
             ParentID = parentID;
@@ -29,10 +29,9 @@ namespace ItemsLibary
             ItemRarity = itemRarity;
             TypeOfItem = type;
             Value = RNGGenarator.GetValueForItem((int)itemRarity);
-            UseAction = action;
         }
 
-        public static Items GetNewRandomItem(int parentID, Action action)
+        public static Items GetNewRandomItem(int parentID)
         {
             int max = 0;
             int lowest = 0;
@@ -44,7 +43,7 @@ namespace ItemsLibary
             max = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Max()+1;
             int rarity = random.Next(lowest, max);
             count++;
-            return new Items(count,parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity, action);
+            return new Items(count,parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity);
         }
 
         public override string ToString()

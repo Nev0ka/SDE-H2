@@ -1,4 +1,5 @@
 ﻿using EventsLibary;
+using ItemsLibary;
 using Logging;
 using System.Runtime.CompilerServices;
 using Village;
@@ -16,6 +17,7 @@ namespace Simulation
         public void StartUpSim(Village.Village village)
         {
             village.CreateVillage();
+            ItemsActions itemsActions = new(NumberOfDays,village.Villagers);
             LogEvents.Log($"Village create number of villagers:{village.Villagers.Count}, number of locations: {village.LocationsInVillage.Count}");
         }
 
