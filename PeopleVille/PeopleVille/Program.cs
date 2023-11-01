@@ -62,6 +62,7 @@ namespace PeopleVille
                     Console.WriteLine("\n\n                                           Press enter to continue");
                     Console.ReadLine();
                     Console.WriteLine("Tab \"R\" to restart");
+                    Console.WriteLine("Tab any other key to Stop");
                     if (Console.ReadKey().Key == ConsoleKey.R)
                     {
                         Main(args);

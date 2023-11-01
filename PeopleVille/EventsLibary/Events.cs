@@ -1,6 +1,8 @@
 ﻿using ItemsLibary;
+using Locations;
 using Logging;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Reflection.Metadata.Ecma335;
 using Villager;
 
@@ -10,9 +12,8 @@ namespace EventsLibary
     {
         public List<IVillager> ListOfVillagers { get; set; } = new();
         public int NumberOfDays { get; set; }
-        public Events(List<IVillager> villagers)
+        public Events()
         {
-            ListOfVillagers = villagers;
         }
         public Events(List<IVillager> villagers, int day)
         {
@@ -126,7 +127,6 @@ namespace EventsLibary
             }
             if (villager1.Location - villager2.Location >= 200)
             {
-                villager1.Location -= 200;
                 villager2.Location -= 200;
                 return;
             }
@@ -146,6 +146,53 @@ namespace EventsLibary
             villager2.Inventory.Add(itemFromVillager1);
             LogEvents.Log($"{villager1.Name} and {villager2.Name} found eachother.");
             LogEvents.Log($"{villager1.Name} just traded {itemFromVillager1.ToString()} with {villager2.Name} for {itemFromVillager2.ToString()}",NumberOfDays);
+        }
+
+        public void UseStore(IVillager villager, Store store, bool Isbuying)
+        {
+            Random rnd = new();
+            if (villager.Location - store.Location >= 200)
+            {
+                if (villager.Location > store.Location)
+                {
+                    villager.Location -= 200;
+                }
+                else
+                {
+                    villager.Location += 200;
+                }
+            }
+
+            if (Isbuying)
+            {
+                if (villager.Wallet == 0)
+                {
+                    return;
+                }
+                if (store.StoreInventory.Count == 0)
+                {
+                    return;
+                }
+                int IndexOfItemForVillagerToBuy = rnd.Next(store.StoreInventory.Count);
+                Items itemToBuy = store.StoreInventory[IndexOfItemForVillagerToBuy];
+                store.SellItem(itemToBuy.ID,villager, NumberOfDays);
+                return;
+            }
+            else
+            {
+                if (store.Transactions.Sum() == 0)
+                {
+                    return;
+                }
+                if (villager.Inventory.Count == 0)
+                {
+                    return;
+                }
+                int IndexOfItemToSell = rnd.Next(villager.Inventory.Count);
+                Items itemToSell = villager.Inventory[IndexOfItemToSell];
+                store.BuyItem(itemToSell.ID, villager, NumberOfDays);
+                return;
+            }
         }
     }
 }

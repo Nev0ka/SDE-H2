@@ -1,5 +1,8 @@
-﻿using ItemsLibary;
+﻿using Enums;
+using ItemsLibary;
+using Logging;
 using Villager;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Locations
 {
@@ -10,12 +13,14 @@ namespace Locations
         public List<int> Transactions { get; set; } = new();
         public List<Items> StoreInventory { get; set; } = new();
         public int Location { get; set; }
+        public LocationsTypeEnums Type { get; set; }
 
-        public Store(int id, string storeName, int location)
+        public Store(int id, string storeName, int location, LocationsTypeEnums locationsType)
         {
             ID = id;
             Name = storeName;
             Location = location;
+            Type = locationsType;
             StoreInventory = new()
             {
                 Items.GetNewRandomItem(ID),
@@ -43,7 +48,7 @@ namespace Locations
             };
         }
 
-        public void SellItem(int itemId, Villager.Villager villager)
+        public void SellItem(int itemId, IVillager villager, int day)
         {
             Items item = StoreInventory.First(x => x.ID == itemId);
             if (villager.Wallet < item.Value)
@@ -56,10 +61,11 @@ namespace Locations
                 Transactions.Add(item.Value);
                 villager.Wallet -= item.Value;
                 StoreInventory.Remove(item);
+                LogEvents.Log($"{villager.Name} just bought {item.ToString()} for {item.Value}$ from {Name}", day);
             }
         }
 
-        public void BuyItem(int itemId, Villager.Villager villager)
+        public void BuyItem(int itemId, IVillager villager, int day)
         {
             Items item = villager.Inventory.First(x => x.ID == itemId);
             if (Transactions.Sum() < item.Value)
@@ -72,6 +78,7 @@ namespace Locations
                 villager.Inventory.Remove(item);
                 Transactions.Add(-item.Value);
                 villager.Wallet += item.Value;
+                LogEvents.Log($"{villager.Name} just sold {item.ToString()} too {Name} for {item.Value}$",day);
             }
         }
     }

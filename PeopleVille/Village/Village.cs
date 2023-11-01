@@ -27,14 +27,18 @@ namespace Village
             {
                 Villager.Villager villager = new(i, names[i], i, 10);
                 Villagers.Add(villager);
+                if (i == 0)
+                {
+                    continue;
+                }
                 if ((i % 4) == 0)
                 {
-                    House house = new(i * 1000, i, names[i], i);
+                    House house = new(i * 1000, i, names[i], i, Enums.LocationsTypeEnums.House);
                     LocationsInVillage.Add(house);
                 }
                 if ((i % 200) == 0)
                 {
-                    Store store = new(i * 754, "walmart", i);
+                    Store store = new(i * 754, "walmart", i, Enums.LocationsTypeEnums.Store);
                     LocationsInVillage.Add(store);
                 }
             }
