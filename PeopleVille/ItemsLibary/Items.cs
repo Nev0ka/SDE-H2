@@ -17,11 +17,11 @@ namespace ItemsLibary
         public int ParentID { get; set; }
         public string Name { get; set; }
         public int Value { get; set; }
-        public Action<string> UseAction { get; set; }
+        public Action UseAction { get; set; }
         public ItemRarityEnum ItemRarity { get; set; }
         public ItemEnums TypeOfItem { get; set; }
 
-        public Items(int id,int parentID, ItemEnums type, ItemRarityEnum itemRarity)
+        public Items(int id, int parentID, ItemEnums type, ItemRarityEnum itemRarity, Action action)
         {
             ID = id;
             ParentID = parentID;
@@ -29,39 +29,10 @@ namespace ItemsLibary
             ItemRarity = itemRarity;
             TypeOfItem = type;
             Value = RNGGenarator.GetValueForItem((int)itemRarity);
-            UseAction = GetAction(type);
+            UseAction = action;
         }
 
-        public Action<string> GetAction(ItemEnums type)
-        {
-            Action<string> action = NoAction;
-            switch (type)
-            {
-                case ItemEnums.Knife:
-                    break;
-                case ItemEnums.Hat:
-                    break;
-                case ItemEnums.Watch:
-                    break;
-                case ItemEnums.Glasses:
-                    break;
-                case ItemEnums.Pitchfork:
-                    break;
-                case ItemEnums.Book:
-                    break;
-                default:
-                    action = NoAction;
-                    break;
-            }
-            return action;
-        }
-
-        private void NoAction(string obj)
-        {
-            obj = "No thing happend";
-        }
-
-        public static Items GetNewRandomItem(int parentID)
+        public static Items GetNewRandomItem(int parentID, Action action)
         {
             int max = 0;
             int lowest = 0;
@@ -73,7 +44,7 @@ namespace ItemsLibary
             max = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Max()+1;
             int rarity = random.Next(lowest, max);
             count++;
-            return new Items(count,parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity);
+            return new Items(count,parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity, action);
         }
 
         public override string ToString()
