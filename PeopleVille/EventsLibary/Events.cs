@@ -33,22 +33,73 @@ namespace EventsLibary
                 ListToWithoutDeadPeople.Remove(ListOfVillagers[i]);
             }
             ListOfVillagers = ListToWithoutDeadPeople.ToList();
-            LogEvents.Log($"{NumberOfVillagerToDied} Died in a naturel diesater. {numberOfVillagerBefore - NumberOfVillagerToDied} survived. \nEverybody who survived griefed and morned over their fellow villagers.", NumberOfDays);
+            LogEvents.Log($"{NumberOfVillagerToDied} Died in a naturel diesater. {numberOfVillagerBefore - NumberOfVillagerToDied} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", NumberOfDays);
+            LogEvents.Log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                      ",NumberOfDays);
+            LogEvents.Log("   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                        ",NumberOfDays);
+            LogEvents.Log("      \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                        ", NumberOfDays);
+            LogEvents.Log("         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                          ", NumberOfDays);
+            LogEvents.Log("           \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                           ", NumberOfDays);
+            LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                             ", NumberOfDays);
+            LogEvents.Log("                 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                              ", NumberOfDays);
+            LogEvents.Log("                   \\\\\\\\\\\\\\\\\\\\\\\\\\\\                               ", NumberOfDays);
+            LogEvents.Log("                   \\\\\\\\\\\\\\\\\\\\\\\\\\                                ", NumberOfDays);
+            LogEvents.Log("                   \\\\\\\\\\\\\\\\\\\\\\\\                                 ", NumberOfDays);
+            LogEvents.Log("                  \\\\\\\\\\\\\\\\\\\\\\\\                                  ", NumberOfDays);
+            LogEvents.Log("                 \\\\\\\\\\\\\\\\\\\\\\\\                                   ", NumberOfDays);
+            LogEvents.Log("                \\\\\\\\\\\\\\\\\\\\\\\\                                    ", NumberOfDays);
+            LogEvents.Log("               \\\\\\\\\\\\\\\\\\\\\\\\                                     ", NumberOfDays);
+            LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\                                      ", NumberOfDays);
+            LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\                                      ", NumberOfDays);
+            LogEvents.Log("         `     \\\\\\\\\\\\\\\\\\\\\\\\      `    `                         ", NumberOfDays);
+            LogEvents.Log("            *    \\\\\\\\\\\\\\\\\\\\\\\\  *   *                            ", NumberOfDays);
+            LogEvents.Log("     `    *    *   \\\\\\\\\\\\\\\\\\\\\\\\   *  *   `                      ", NumberOfDays);
+            LogEvents.Log("             *   *   \\\\\\\\\\\\\\\\\\\\  *                              ", NumberOfDays);
+            LogEvents.Log("          `    *   * \\\\\\\\\\\\\\\\\\ *   *   `                        ", NumberOfDays);
+            LogEvents.Log("       `    `     *  \\\\\\\\\\\\\\\\   *   `_____                      ", NumberOfDays);
+            LogEvents.Log("             \\ \\ \\ * \\\\\\\\\\\\  * /   /\\`````\\                    ", NumberOfDays);
+            LogEvents.Log("           \\ \\ \\ \\  \\\\\\\\\\\\  / / / /  \\`````\\                   ", NumberOfDays);
+            LogEvents.Log("         \\ \\ \\ \\ \\ \\\\\\\\\\\\ / / / / |[] | [] |\n", NumberOfDays);
         }
 
         private void HyggeWasteTimeEvent()
         {
-            LogEvents.Log("Everybody hygged the hele day", NumberOfDays);
+            LogEvents.Log("Everybody hygged the hele day \n", NumberOfDays);
         }
 
         private void FestivalEvent()
         {
-            LogEvents.Log("All the villagers enjoyed a nice festival with some great artist and good music", NumberOfDays);
+            LogEvents.Log("All the villagers enjoyed a nice festival with some great artist and good music \n", NumberOfDays);
+            LogEvents.Log("                                    ;;;;;;;;;;;;;;;;;;;", NumberOfDays);
+            LogEvents.Log("                                    ;;;;;;;;;;;;;;;;;;;", NumberOfDays);
+            LogEvents.Log("                                    ;                 ;", NumberOfDays);
+            LogEvents.Log("                                    ;                 ;", NumberOfDays);
+            LogEvents.Log("                                    ;                 ;", NumberOfDays);
+            LogEvents.Log("                                    ;                 ;", NumberOfDays);
+            LogEvents.Log("                                    ;                 ;", NumberOfDays);
+            LogEvents.Log("                                    ;                 ;", NumberOfDays);
+            LogEvents.Log("                                    ;                 ;", NumberOfDays);
+            LogEvents.Log("                               ,;;;;;            ,;;;;;", NumberOfDays);
+            LogEvents.Log("                               ;;;;;;            ;;;;;;", NumberOfDays);
+            LogEvents.Log("                               `;;;;'            `;;;;' \n", NumberOfDays);
         }
 
         private void LocalSportTournamentEvent()
         {
-            LogEvents.Log("Everybody enjoyed a good old football tournamant", NumberOfDays);
+            LogEvents.Log("Everybody enjoyed a good old football tournamant \n", NumberOfDays);
+            LogEvents.Log("                         _...----.._", NumberOfDays);
+            LogEvents.Log("                      ,:':::::.     `>.", NumberOfDays);
+            LogEvents.Log("                    ,' |:::::;'     |:::.", NumberOfDays);
+            LogEvents.Log("                   /    `'::'       :::::\\", NumberOfDays);
+            LogEvents.Log("                  /         _____     `::;\\", NumberOfDays);
+            LogEvents.Log("                 :         /:::::\\      `  :", NumberOfDays);
+            LogEvents.Log("                 | ,.     /:::::::\\        |", NumberOfDays);
+            LogEvents.Log("                 |;:::.   `::::::;'        |", NumberOfDays);
+            LogEvents.Log("                 ::::::     `::;'      ,.  ;", NumberOfDays);
+            LogEvents.Log("                  \\:::'              ,::::/", NumberOfDays);
+            LogEvents.Log("                   \\                 \\:::/", NumberOfDays);
+            LogEvents.Log("                    `.     ,:.        :;'", NumberOfDays);
+            LogEvents.Log("                      `-.::::::..  _.''", NumberOfDays);
+            LogEvents.Log("                         ```----'''\n", NumberOfDays);
         }
 
         private void StoryTellingEvent()
@@ -77,18 +128,22 @@ namespace EventsLibary
                     path = Environment.CurrentDirectory + "/peoplevillestory.txt";
                     break;
             }
-            LogEvents.Log("Everybody gattered around ChatGBT then it started telling a story and it went like:\n" + File.ReadAllText(path), NumberOfDays);
+            LogEvents.Log("Everybody gattered around ChatGBT then it started telling a story and it went like:\n" + File.ReadAllText(path) + "\n", NumberOfDays);
         }
 
         private void NormaleWorkDayEvent()
         {
-            LogEvents.Log("Everbody went to work and enjoyed a normal day of work.", NumberOfDays);
+            LogEvents.Log("Everbody went to work and enjoyed a normal day of work.\n", NumberOfDays);
         }
 
         public void KillThatCat()
         {
             Random random = new();
-            LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} kills a stray cat.", NumberOfDays);
+            LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} kills a stray cat.\n", NumberOfDays);
+            LogEvents.Log("                         |\\      _,,,---,,_",NumberOfDays);
+            LogEvents.Log("                         /,`.-'`'    -.  ;-;;,_",NumberOfDays);
+            LogEvents.Log("                        |,4-  ) )-,_. ,\\ (  `'-'", NumberOfDays);
+            LogEvents.Log("                       '---''(_/--'  `-'\\_)  \n", NumberOfDays);
         }
 
         public Action GetRandomAction()
@@ -156,7 +211,7 @@ namespace EventsLibary
             villager1.Inventory.Add(itemFromVillager2);
             villager2.Inventory.Add(itemFromVillager1);
             LogEvents.Log($"{villager1.Name} and {villager2.Name} found eachother.");
-            LogEvents.Log($"{villager1.Name} just traded {itemFromVillager1.ToString()} with {villager2.Name} for {itemFromVillager2.ToString()}",NumberOfDays);
+            LogEvents.Log($"{villager1.Name} just traded {itemFromVillager1.ToString()} with {villager2.Name} for {itemFromVillager2.ToString()}\n",NumberOfDays);
         }
 
         public void UseStore(IVillager villager, Store store, bool Isbuying)

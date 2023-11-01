@@ -54,44 +54,44 @@ namespace ItemsLibary
             }
             foreach (var person in DeadPeople)
             {
-                LogEvents.Log($"{villager.Name} killed {person}.", Days);
+                LogEvents.Log($"{villager.Name} killed {person}.\n", Days);
             }
-            LogEvents.Log($"{villager.Name} committed suicide after killing all those people. \n{numberOfVillagerBeforeMurder - numberOfVillagerToBeMurdered - 1} survived. \nEverybody who survived griefed and morned over their fellow villagers.", Days);
+            LogEvents.Log($"{villager.Name} committed suicide after killing all those people. \n{numberOfVillagerBeforeMurder - numberOfVillagerToBeMurdered - 1} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", Days);
         }
 
         public void CutThingsWithKnife()
         {
-            LogEvents.Log($"{villager.Name} started cutting a piece of wood with a knife.", Days);
+            LogEvents.Log($"{villager.Name} started cutting a piece of wood with a knife.\n", Days);
         }
 
         public void SeeWhatTimeItIs()
         {
-            LogEvents.Log($"{villager.Name} checked their watch to see what time it is.");
+            LogEvents.Log($"{villager.Name} checked their watch to see what time it is.\n");
         }
 
         public void PlayWithHat()
         {
-            LogEvents.Log($"{villager.Name} played with a hat.", Days);
+            LogEvents.Log($"{villager.Name} played with a hat.\n", Days);
         }
 
         public void WearHat()
         {
-            LogEvents.Log($"{villager.Name} put a hat on, and is looking very good.", Days);
+            LogEvents.Log($"{villager.Name} put a hat on, and is looking very good.\n", Days);
         }
 
         public void WearGlasses()
         {
-            LogEvents.Log($"{villager.Name} put a pair of glasses on. Now the {villager.Name} can see again.", Days);
+            LogEvents.Log($"{villager.Name} put a pair of glasses on. Now the {villager.Name} can see again.\n", Days);
         }
 
         public void FarmWithPitchfork()
         {
-            LogEvents.Log($"{villager.Name} used the pitchfork for farming purposes only.", Days);
+            LogEvents.Log($"{villager.Name} used the pitchfork for farming purposes only.\n", Days);
         }
 
         public void ReadBook()
         {
-            LogEvents.Log($"{villager.Name} found a book and starts reading it.", Days);
+            LogEvents.Log($"{villager.Name} found a book and starts reading it.\n", Days);
         }
 
         public Action GetAction(ItemEnums type)

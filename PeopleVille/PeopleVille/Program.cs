@@ -31,7 +31,7 @@ namespace PeopleVille
                 {
                     if (item.Key == day)
                     {
-                        Console.WriteLine(item.Value + "\n");
+                        Console.WriteLine(item.Value);
                     }
                 }
                 day++;

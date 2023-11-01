@@ -61,7 +61,7 @@ namespace Locations
                 Transactions.Add(item.Value);
                 villager.Wallet -= item.Value;
                 StoreInventory.Remove(item);
-                LogEvents.Log($"{villager.Name} just bought {item.ToString()} for {item.Value}$ from {Name}", day);
+                LogEvents.Log($"{villager.Name} just bought {item.ToString()} for {item.Value}$ from {Name}\n", day);
             }
         }
 
@@ -78,7 +78,7 @@ namespace Locations
                 villager.Inventory.Remove(item);
                 Transactions.Add(-item.Value);
                 villager.Wallet += item.Value;
-                LogEvents.Log($"{villager.Name} just sold {item.ToString()} too {Name} for {item.Value}$",day);
+                LogEvents.Log($"{villager.Name} just sold {item.ToString()} too {Name} for {item.Value}$\n",day);
             }
         }
     }
