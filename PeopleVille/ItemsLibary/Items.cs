@@ -1,12 +1,5 @@
 ﻿using Enums;
 using RNG;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ItemsLibary
 {
@@ -37,13 +30,13 @@ namespace ItemsLibary
             int lowest = 0;
             var random = new Random();
             lowest = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Min();
-            max = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Max()+1;
+            max = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Max() + 1;
             int ItemType = random.Next(lowest, max);
             lowest = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Min();
-            max = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Max()+1;
+            max = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Max() + 1;
             int rarity = random.Next(lowest, max);
             count++;
-            return new Items(count,parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity);
+            return new Items(count, parentID, (ItemEnums)ItemType, (ItemRarityEnum)rarity);
         }
 
         public override string ToString()

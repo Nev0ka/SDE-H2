@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Enums
+﻿namespace Enums
 {
-    public class EventEnums
+    public enum EventsEnums
     {
-        enum EventsEnums
-        {
-            NormalWorkDay = 0,
-            Hygge = 51,
-            Festival = 63,
-            SportTournament = 75,
-            StoryTelling = 95,
-            NaturelDiesater = 100,
-        }
+        NormalWorkDay = 0,
+        Hygge = 61,
+        Festival = 73,
+        SportTournament = 80,
+        StoryTelling = 87,
+        KillThatCat = 90,
+        NaturelDiesater = 95,
     }
 }

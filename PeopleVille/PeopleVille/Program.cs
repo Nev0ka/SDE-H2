@@ -1,10 +1,4 @@
 ﻿using Logging;
-using Simulation;
-using System.Data;
-using System.Runtime.CompilerServices;
-using System.Xml;
-using System.Xml.Serialization;
-using Village;
 
 namespace PeopleVille
 {
@@ -69,10 +63,10 @@ namespace PeopleVille
                 {
                     break;
                 }
-                sim.RunEvents(village,day);
+                sim.RunEvents(village, day);
             }
         }
-        
+
         public static void StartupFunction()
         {
             Console.WriteLine("                                                 _");

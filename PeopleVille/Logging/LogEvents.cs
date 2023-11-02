@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Logging
+﻿namespace Logging
 {
     public static class LogEvents
     {
@@ -14,7 +12,7 @@ namespace Logging
         public static void Log(string message, int day)
         {
             LogOfEvent.Add(message);
-            ListOfEventsAndDay.Add(new KeyValuePair<int, string>(day,message));
+            ListOfEventsAndDay.Add(new KeyValuePair<int, string>(day, message));
         }
 
         public static void ResetLogs()

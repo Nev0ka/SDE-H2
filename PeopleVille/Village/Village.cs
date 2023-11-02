@@ -1,6 +1,4 @@
 ﻿using Locations;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml.Linq;
 using Villager;
 
 namespace Village
@@ -12,8 +10,8 @@ namespace Village
 
         public void CreateVillage()
         {
-            List<string> names = new();
-            List<string> storeNames = new();
+            List<string> names;
+            List<string> storeNames;
             try
             {
                 names = File.ReadAllLines(Environment.CurrentDirectory + "/names.txt").ToList();
@@ -24,7 +22,7 @@ namespace Village
                 throw new("Failed to load in the names for villager please check that you have a names.txt in you program output folder.");
             }
             Random rnd = new();
-            int numberOfVillagers = rnd.Next(200 ,names.Count + 1);
+            int numberOfVillagers = rnd.Next(200, names.Count + 1);
             for (int i = 0; i < numberOfVillagers; i++)
             {
                 Villager.Villager villager = new(i, names[i], i, 10);

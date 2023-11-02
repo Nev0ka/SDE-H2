@@ -2,7 +2,6 @@
 using ItemsLibary;
 using Logging;
 using Villager;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Locations
 {
@@ -78,7 +77,7 @@ namespace Locations
                 villager.Inventory.Remove(item);
                 Transactions.Add(-item.Value);
                 villager.Wallet += item.Value;
-                LogEvents.Log($"{villager.Name} just sold {item.ToString()} too {Name} for {item.Value}$\n",day);
+                LogEvents.Log($"{villager.Name} just sold {item.ToString()} too {Name} for {item.Value}$\n", day);
             }
         }
     }

@@ -2,8 +2,6 @@
 using ItemsLibary;
 using Locations;
 using Logging;
-using System.Runtime.CompilerServices;
-using Village;
 using Villager;
 
 namespace Simulation
@@ -14,7 +12,7 @@ namespace Simulation
         public bool AllVillagersIsDead { get; set; } = false;
         delegate void Actions();
         delegate void Trade(Village.Village village);
-        private ItemsActions itemsActions;
+        private ItemsActions? itemsActions;
 
         public void StartUpSim(Village.Village village)
         {
@@ -27,6 +25,10 @@ namespace Simulation
         public void RunEvents(Village.Village village, int numberOfDays)
         {
             NumberOfDays = numberOfDays;
+            if (itemsActions == null)
+            {
+                itemsActions = new(numberOfDays, village);
+            }
             itemsActions.Days = numberOfDays;
             itemsActions.ListOfVillagers = village.Villagers;
             Random rnd = new();
@@ -88,7 +90,7 @@ namespace Simulation
 
             if (rnd.Next(0, 100) >= 75)
             {
-                    villager.Inventory[rnd.Next(0, villager.Inventory.Count)].UseAction();
+                villager.Inventory[rnd.Next(0, villager.Inventory.Count)].UseAction?.Invoke();
             }
         }
 
