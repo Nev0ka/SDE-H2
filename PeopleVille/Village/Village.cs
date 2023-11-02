@@ -13,9 +13,11 @@ namespace Village
         public void CreateVillage()
         {
             List<string> names = new();
+            List<string> storeNames = new();
             try
             {
                 names = File.ReadAllLines(Environment.CurrentDirectory + "/names.txt").ToList();
+                storeNames = File.ReadAllLines(Environment.CurrentDirectory + "/storenames.txt").ToList();
             }
             catch (Exception)
             {
@@ -38,7 +40,7 @@ namespace Village
                 }
                 if ((i % 200) == 0)
                 {
-                    Store store = new(i * 754, "walmart", i, Enums.LocationsTypeEnums.Store);
+                    Store store = new(i * 754, storeNames[rnd.Next(0, storeNames.Count)], i, Enums.LocationsTypeEnums.Store);
                     LocationsInVillage.Add(store);
                 }
             }
