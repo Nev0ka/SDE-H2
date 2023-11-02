@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Reflection.Metadata.Ecma335;
 using Village;
 using Villager;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace EventsLibary
 {
@@ -34,9 +35,6 @@ namespace EventsLibary
             }
             ListOfVillagers = ListToWithoutDeadPeople.ToList();
             LogEvents.Log($"{NumberOfVillagerToDied} Died in a naturel diesater. {numberOfVillagerBefore - NumberOfVillagerToDied} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", NumberOfDays);
-            LogEvents.Log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                      ",NumberOfDays);
-            LogEvents.Log("   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                        ",NumberOfDays);
-            LogEvents.Log("      \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                        ", NumberOfDays);
             LogEvents.Log("         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                          ", NumberOfDays);
             LogEvents.Log("           \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                           ", NumberOfDays);
             LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                             ", NumberOfDays);
@@ -139,7 +137,7 @@ namespace EventsLibary
         public void KillThatCat()
         {
             Random random = new();
-            LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} kills a stray cat.\n", NumberOfDays);
+            LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} killed a stray cat.\n", NumberOfDays);
             LogEvents.Log("                         |\\      _,,,---,,_",NumberOfDays);
             LogEvents.Log("                         /,`.-'`'    -.  ;-;;,_",NumberOfDays);
             LogEvents.Log("                        |,4-  ) )-,_. ,\\ (  `'-'", NumberOfDays);
@@ -150,32 +148,32 @@ namespace EventsLibary
         {
             Random rand = new();
             int numberForEvent = rand.Next(0,111);
+            if (numberForEvent >= 105)
+            {
+                return NaturelDiesaterEvent;
+            }
+            if (numberForEvent >= 100)
+            {
+                return KillThatCat;
+            }
+            if (numberForEvent >= 95)
+            {
+                return StoryTellingEvent;
+            }
+            if (numberForEvent >= 75)
+            {
+                return LocalSportTournamentEvent;
+            }
+            if (numberForEvent >= 63)
+            {
+                return FestivalEvent;
+            }
+            if (numberForEvent >= 51)
+            {
+                return HyggeWasteTimeEvent;
+            }
             if (numberForEvent >= 0)
             {
-                if (numberForEvent >= 51)
-                {
-                    if (numberForEvent >= 63)
-                    {
-                        if (numberForEvent >= 75)
-                        {
-                            if (numberForEvent >= 95)
-                            {
-                                if (numberForEvent >= 100)
-                                {
-                                    if (numberForEvent >= 105)
-                                    {
-                                        return NaturelDiesaterEvent;
-                                    }
-                                    return KillThatCat;
-                                }
-                                return StoryTellingEvent;
-                            }
-                            return LocalSportTournamentEvent;
-                        }
-                        return FestivalEvent;
-                    }
-                    return HyggeWasteTimeEvent;
-                }
                 return NormaleWorkDayEvent;
             }
             return NormaleWorkDayEvent;
@@ -193,7 +191,14 @@ namespace EventsLibary
             }
             if (villager1.Location - villager2.Location >= 200)
             {
-                villager2.Location -= 200;
+                if (villager2.Location > villager1.Location)
+                {
+                    villager2.Location -= 200;
+                }
+                else
+                {
+                    villager2.Location += 200;
+                }
                 return;
             }
             else

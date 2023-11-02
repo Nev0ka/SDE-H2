@@ -35,15 +35,6 @@ namespace PeopleVille
                         Console.WriteLine(item.Value);
                     }
                 }
-                day++;
-                Console.WriteLine("Press any button to run a event. \nPress escape to stop");
-                var tabKey = Console.ReadKey();
-                Console.Clear();
-                if (tabKey.Key == ConsoleKey.Escape)
-                {
-                    break;
-                }
-                sim.RunEvents(village,day);
                 if (sim.AllVillagersIsDead)
                 {
                     Console.WriteLine($"Day {day}\n");
@@ -70,6 +61,15 @@ namespace PeopleVille
                     }
                     break;
                 }
+                day++;
+                Console.WriteLine("Press any button to run a event. \nPress escape to stop");
+                var tabKey = Console.ReadKey();
+                Console.Clear();
+                if (tabKey.Key == ConsoleKey.Escape)
+                {
+                    break;
+                }
+                sim.RunEvents(village,day);
             }
         }
         
