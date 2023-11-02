@@ -146,6 +146,18 @@ namespace EventsLibary
             LogEvents.Log("                       '---''(_/--'  `-'\\_)  \n", NumberOfDays);
         }
 
+        public void RickRoll()
+        {
+            Random rnd = new();
+            int Villager1Index = rnd.Next(ListOfVillagers.Count);
+            int Villager2Index = rnd.Next(ListOfVillagers.Count);
+            IVillager villager1 = ListOfVillagers[Villager1Index];
+            IVillager villager2 = ListOfVillagers[Villager2Index];
+            ListOfVillagers.Remove(villager1);
+            LogEvents.Log($"{villager1.Name} rick rolled {villager2.Name}", NumberOfDays);
+            LogEvents.Log($"So {villager2.Name} Killed {villager1.Name} because of it.", NumberOfDays);
+        }
+
         public Action GetRandomAction()
         {
             Random rand = new();
@@ -153,6 +165,10 @@ namespace EventsLibary
             if (numberForEvent >= (int)EventsEnums.NaturelDiesater)
             {
                 return NaturelDiesaterEvent;
+            }
+            if (numberForEvent >= (int)EventsEnums.RickRoll)
+            {
+                return RickRoll;
             }
             if (numberForEvent >= (int)EventsEnums.KillThatCat)
             {
@@ -267,6 +283,7 @@ namespace EventsLibary
                 return;
             }
         }
+
         public string GetVillagePopulationAsString()
         {
             string result;

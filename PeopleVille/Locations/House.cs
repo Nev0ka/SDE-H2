@@ -10,10 +10,10 @@ namespace Locations
         public int Location { get; set; }
         public LocationsTypeEnums Type { get; set; }
 
-        public House(int id, int ownerId, string villagerName, int location, LocationsTypeEnums locationsType)
+        public House(int id, int ownerID, string villagerName, int location, LocationsTypeEnums locationsType)
         {
             ID = id;
-            OwnerID = ownerId;
+            OwnerID = ownerID;
             Name = villagerName + "'s house";
             Location = location;
             Type = locationsType;

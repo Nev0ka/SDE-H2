@@ -34,22 +34,7 @@ namespace PeopleVille
                     Console.WriteLine($"Day {day}\n");
                     Console.WriteLine("All the villager died.");
                     Thread.Sleep(2000);
-                    Console.Clear();
-                    Console.WriteLine("\n\n");
-                    Console.WriteLine("  ██████████████  ██          ██      ██████████            ██████████    ██           ██    ██████████    ");
-                    Console.WriteLine("        ██        ██          ██      ██                    ██            ████         ██    ██      ████  ");
-                    Console.WriteLine("        ██        ██          ██      ██                    ██            ██  ██       ██    ██        ████");
-                    Console.WriteLine("        ██        ██████████████      ██                    ██            ██    ██     ██    ██          ██");
-                    Console.WriteLine("        ██        ██          ██      ██████████            ██████████    ██     ██    ██    ██          ██");
-                    Console.WriteLine("        ██        ██          ██      ██                    ██            ██       ██  ██    ██        ████");
-                    Console.WriteLine("        ██        ██          ██      ██                    ██            ██         ████    ██      ████  ");
-                    Console.WriteLine("        ██        ██          ██      ██████████            ██████████    ██           ██    ██████████    ");
-                    Thread.Sleep(3500);
-                    Console.WriteLine("\n\n                                           Press enter to continue");
-                    Console.ReadLine();
-                    Console.WriteLine("Tab \"R\" to restart");
-                    Console.WriteLine("Tab any other key to Stop");
-                    if (Console.ReadKey().Key == ConsoleKey.R)
+                    if (!TheEndFunction())
                     {
                         Main(args);
                     }
@@ -67,6 +52,29 @@ namespace PeopleVille
             }
         }
 
+        public static bool TheEndFunction()
+        {
+            Console.Clear();
+            Console.WriteLine("\n\n");
+            Console.WriteLine("  ██████████████  ██          ██      ██████████            ██████████    ██           ██    ██████████    ");
+            Console.WriteLine("        ██        ██          ██      ██                    ██            ████         ██    ██      ████  ");
+            Console.WriteLine("        ██        ██          ██      ██                    ██            ██  ██       ██    ██        ████");
+            Console.WriteLine("        ██        ██████████████      ██                    ██            ██    ██     ██    ██          ██");
+            Console.WriteLine("        ██        ██          ██      ██████████            ██████████    ██     ██    ██    ██          ██");
+            Console.WriteLine("        ██        ██          ██      ██                    ██            ██       ██  ██    ██        ████");
+            Console.WriteLine("        ██        ██          ██      ██                    ██            ██         ████    ██      ████  ");
+            Console.WriteLine("        ██        ██          ██      ██████████            ██████████    ██           ██    ██████████    ");
+            Thread.Sleep(3500);
+            Console.WriteLine("\n\n                                           Press enter to continue");
+            Console.ReadLine();
+            Console.WriteLine("Tab \"R\" to restart");
+            Console.WriteLine("Tab any other key to Stop");
+            if (Console.ReadKey().Key == ConsoleKey.R)
+            {
+                return false;
+            }
+            return true;
+        }
         public static void StartupFunction()
         {
             Console.WriteLine("                                                 _");

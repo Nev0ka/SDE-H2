@@ -26,11 +26,9 @@ namespace ItemsLibary
 
         public static Items GetNewRandomItem(int parentID)
         {
-            int max = 0;
-            int lowest = 0;
             var random = new Random();
-            lowest = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Min();
-            max = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Max() + 1;
+            int lowest = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Min();
+            int max = Enum.GetValues(typeof(ItemEnums)).Cast<int>().Max() + 1;
             int ItemType = random.Next(lowest, max);
             lowest = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Min();
             max = Enum.GetValues(typeof(ItemRarityEnum)).Cast<int>().Max() + 1;
