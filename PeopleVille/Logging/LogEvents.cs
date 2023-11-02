@@ -16,5 +16,11 @@ namespace Logging
             LogOfEvent.Add(message);
             ListOfEventsAndDay.Add(new KeyValuePair<int, string>(day,message));
         }
+
+        public static void ResetLogs()
+        {
+            LogOfEvent.Clear();
+            ListOfEventsAndDay.Clear();
+        }
     }
 }

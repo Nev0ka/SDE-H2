@@ -19,12 +19,12 @@ namespace Simulation
         public void StartUpSim(Village.Village village)
         {
             village.CreateVillage();
-            itemsActions = new(NumberOfDays,village.Villagers);
+            itemsActions = new(NumberOfDays, village);
             itemsActions.AddActionToItems();
             LogEvents.Log($"Village create number of villagers:{village.Villagers.Count}, number of locations: {village.LocationsInVillage.Count}");
         }
 
-        public void RunEvents(Village.Village village,int numberOfDays)
+        public void RunEvents(Village.Village village, int numberOfDays)
         {
             NumberOfDays = numberOfDays;
             itemsActions.Days = numberOfDays;
@@ -43,7 +43,7 @@ namespace Simulation
                 village.Villagers = itemsActions.ListOfVillagers;
             }
             Events events = new(village.Villagers, NumberOfDays);
-            RunStoreEvent(village.Villagers[rnd.Next(0,village.Villagers.Count)], (Store)village.LocationsInVillage.Where(x => x.Type == Enums.LocationsTypeEnums.Store).ToList()[rnd.Next(0, village.LocationsInVillage.Where(x => x.Type == Enums.LocationsTypeEnums.Store).Count())], events);
+            RunStoreEvent(village.Villagers[rnd.Next(0, village.Villagers.Count)], (Store)village.LocationsInVillage.Where(x => x.Type == Enums.LocationsTypeEnums.Store).ToList()[rnd.Next(0, village.LocationsInVillage.Where(x => x.Type == Enums.LocationsTypeEnums.Store).Count())], events);
 
             Actions ActionDelegate = new(events.GetRandomAction());
             ActionDelegate.Invoke();
@@ -80,30 +80,30 @@ namespace Simulation
 
         public void RunItemAction(IVillager villager)
         {
-            Random rnd = new(); 
-            if(villager.Inventory.Count == 0)
+            Random rnd = new();
+            if (villager.Inventory.Count == 0)
             {
                 return;
             }
 
-            if(rnd.Next(0, 100) >= 75)
+            if (rnd.Next(0, 100) >= 75)
             {
-                villager.Inventory[rnd.Next(0, villager.Inventory.Count)].UseAction();
+                    villager.Inventory[rnd.Next(0, villager.Inventory.Count)].UseAction();
             }
         }
 
         public void RunStoreEvent(IVillager villager, Store store, Events events)
         {
             Random rnd = new();
-            if (rnd.Next(0,101) >= 70)
+            if (rnd.Next(0, 101) >= 70)
             {
-                if (rnd.Next(0,101) >= 50)
+                if (rnd.Next(0, 101) >= 50)
                 {
-                    events.UseStore(villager,store,true);
+                    events.UseStore(villager, store, true);
                 }
                 else
                 {
-                    events.UseStore(villager,store,false);
+                    events.UseStore(villager, store, false);
                 }
             }
         }

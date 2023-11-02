@@ -16,6 +16,7 @@ namespace PeopleVille
             StartupFunction();
             Simulation.Simulation sim = new();
             Village.Village village = new();
+            LogEvents.ResetLogs();
             sim.StartUpSim(village);
             int day = 0;
             while (true)

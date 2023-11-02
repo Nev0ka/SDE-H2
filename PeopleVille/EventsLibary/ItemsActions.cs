@@ -18,15 +18,16 @@ namespace ItemsLibary
         public List<IVillager> ListOfVillagers { get; set; } = new();
         public List<ILocation> ListOfLocations { get; set; } = new();
 
-        public ItemsActions(int day, List<IVillager> villagers)
+        public ItemsActions(int day, Village.Village village)
         {
             Days = day;
-            ListOfVillagers = villagers;
+            ListOfVillagers = village.Villagers;
+            ListOfLocations = village.LocationsInVillage;
         }
 
         public void Nothing()
         {
-
+            LogEvents.Log("failed",Days);
         }
 
         public void MurderVillager()
