@@ -1,20 +1,14 @@
 ﻿using Enums;
 using Locations;
 using Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Villager;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace ItemsLibary
 {
     public class ItemsActions
     {
         public int Days { get; set; }
-        public  IVillager villager { get; set; }
+        public IVillager villager { get; set; }
         public List<IVillager> ListOfVillagers { get; set; } = new();
         public List<ILocation> ListOfLocations { get; set; } = new();
 
@@ -27,7 +21,6 @@ namespace ItemsLibary
 
         public void Nothing()
         {
-            LogEvents.Log("failed",Days);
         }
 
         public void MurderVillager()

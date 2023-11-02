@@ -1,12 +1,8 @@
-﻿using ItemsLibary;
+﻿using Enums;
+using ItemsLibary;
 using Locations;
 using Logging;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
-using System.Reflection.Metadata.Ecma335;
-using Village;
 using Villager;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace EventsLibary
 {
@@ -27,9 +23,9 @@ namespace EventsLibary
         {
             Random random = new();
             int numberOfVillagerBefore = ListOfVillagers.Count;
-            int NumberOfVillagerToDied = random.Next(1,ListOfVillagers.Count+1);
+            int NumberOfVillagerToDied = random.Next(1, ListOfVillagers.Count + 1);
             List<IVillager> ListToWithoutDeadPeople = ListOfVillagers.ToList();
-            for (int i = 0;i < NumberOfVillagerToDied;i++)
+            for (int i = 0; i < NumberOfVillagerToDied; i++)
             {
                 ListToWithoutDeadPeople.Remove(ListOfVillagers[i]);
             }
@@ -103,7 +99,7 @@ namespace EventsLibary
         private void StoryTellingEvent()
         {
             Random random = new();
-            int numberForStory = random.Next(0,3);
+            int numberForStory = random.Next(0, 3);
             string path = string.Empty;
             switch (numberForStory)
             {
@@ -138,8 +134,8 @@ namespace EventsLibary
         {
             Random random = new();
             LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} killed a stray cat.\n", NumberOfDays);
-            LogEvents.Log("                         |\\      _,,,---,,_",NumberOfDays);
-            LogEvents.Log("                         /,`.-'`'    -.  ;-;;,_",NumberOfDays);
+            LogEvents.Log("                         |\\      _,,,---,,_", NumberOfDays);
+            LogEvents.Log("                         /,`.-'`'    -.  ;-;;,_", NumberOfDays);
             LogEvents.Log("                        |,4-  ) )-,_. ,\\ (  `'-'", NumberOfDays);
             LogEvents.Log("                       '---''(_/--'  `-'\\_)  \n", NumberOfDays);
         }
@@ -147,39 +143,39 @@ namespace EventsLibary
         public Action GetRandomAction()
         {
             Random rand = new();
-            int numberForEvent = rand.Next(0,111);
-            if (numberForEvent >= 105)
+            int numberForEvent = rand.Next(0, 100);
+            if (numberForEvent >= (int)EventsEnums.NaturelDiesater)
             {
                 return NaturelDiesaterEvent;
             }
-            if (numberForEvent >= 100)
+            if (numberForEvent >= (int)EventsEnums.KillThatCat)
             {
                 return KillThatCat;
             }
-            if (numberForEvent >= 95)
+            if (numberForEvent >= (int)EventsEnums.StoryTelling)
             {
                 return StoryTellingEvent;
             }
-            if (numberForEvent >= 75)
+            if (numberForEvent >= (int)EventsEnums.SportTournament)
             {
                 return LocalSportTournamentEvent;
             }
-            if (numberForEvent >= 63)
+            if (numberForEvent >= (int)EventsEnums.Festival)
             {
                 return FestivalEvent;
             }
-            if (numberForEvent >= 51)
+            if (numberForEvent >= (int)EventsEnums.Hygge)
             {
                 return HyggeWasteTimeEvent;
             }
-            if (numberForEvent >= 0)
+            if (numberForEvent >= (int)EventsEnums.NormalWorkDay)
             {
                 return NormaleWorkDayEvent;
             }
             return NormaleWorkDayEvent;
         }
 
-        public void Trade(IVillager villager1,IVillager villager2)
+        public void Trade(IVillager villager1, IVillager villager2)
         {
             if (villager1.Inventory.Count == 0)
             {
@@ -207,8 +203,8 @@ namespace EventsLibary
             }
 
             Random rnd = new();
-            int slotForVillager1 = rnd.Next(0,villager1.Inventory.Count);
-            int slotForVillager2 = rnd.Next(0,villager2.Inventory.Count);
+            int slotForVillager1 = rnd.Next(0, villager1.Inventory.Count);
+            int slotForVillager2 = rnd.Next(0, villager2.Inventory.Count);
             Items itemFromVillager1 = villager1.Inventory[slotForVillager1];
             Items itemFromVillager2 = villager2.Inventory[slotForVillager2];
             villager1.Inventory.Remove(itemFromVillager1);
@@ -216,7 +212,7 @@ namespace EventsLibary
             villager1.Inventory.Add(itemFromVillager2);
             villager2.Inventory.Add(itemFromVillager1);
             LogEvents.Log($"{villager1.Name} and {villager2.Name} found eachother.");
-            LogEvents.Log($"{villager1.Name} just traded {itemFromVillager1.ToString()} with {villager2.Name} for {itemFromVillager2.ToString()}\n",NumberOfDays);
+            LogEvents.Log($"{villager1.Name} just traded {itemFromVillager1.ToString()} with {villager2.Name} for {itemFromVillager2.ToString()}\n", NumberOfDays);
         }
 
         public void UseStore(IVillager villager, Store store, bool Isbuying)
@@ -246,7 +242,7 @@ namespace EventsLibary
                 }
                 int IndexOfItemForVillagerToBuy = rnd.Next(store.StoreInventory.Count);
                 Items itemToBuy = store.StoreInventory[IndexOfItemForVillagerToBuy];
-                store.SellItem(itemToBuy.ID,villager, NumberOfDays);
+                store.SellItem(itemToBuy.ID, villager, NumberOfDays);
                 return;
             }
             else
