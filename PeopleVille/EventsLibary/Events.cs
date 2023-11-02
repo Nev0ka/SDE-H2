@@ -2,6 +2,7 @@
 using ItemsLibary;
 using Locations;
 using Logging;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using Villager;
@@ -149,8 +150,8 @@ namespace EventsLibary
         public void RickRoll()
         {
             Random rnd = new();
-            int Villager1Index = rnd.Next(ListOfVillagers.Count);
-            int Villager2Index = rnd.Next(ListOfVillagers.Count);
+            int Villager1Index = rnd.Next(0,ListOfVillagers.Count);
+            int Villager2Index = rnd.Next(0,ListOfVillagers.Count);
             IVillager villager1 = ListOfVillagers[Villager1Index];
             IVillager villager2 = ListOfVillagers[Villager2Index];
             ListOfVillagers.Remove(villager1);
