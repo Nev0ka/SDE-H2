@@ -18,7 +18,7 @@ namespace Simulation
         {
             village.CreateVillage();
             itemsActions = new(NumberOfDays, village);
-            itemsActions.AddActionToItems();
+            //itemsActions.AddActionToItems();
             LogEvents.Log($"Village create number of villagers:{village.Villagers.Count}, number of locations: {village.LocationsInVillage.Count}");
         }
 
@@ -38,7 +38,7 @@ namespace Simulation
                 trade(village);
             }
             int indexOfItemToUse = rnd.Next(0, village.Villagers.Count);
-            itemsActions.villager = village.Villagers[indexOfItemToUse];
+            itemsActions.Villager = village.Villagers[indexOfItemToUse];
             RunItemAction(village.Villagers[indexOfItemToUse]);
             if (village.Villagers != itemsActions.ListOfVillagers)
             {

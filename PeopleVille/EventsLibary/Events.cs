@@ -2,6 +2,8 @@
 using ItemsLibary;
 using Locations;
 using Logging;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using Villager;
 
 namespace EventsLibary
@@ -10,9 +12,6 @@ namespace EventsLibary
     {
         public List<IVillager> ListOfVillagers { get; set; } = new();
         public int NumberOfDays { get; set; }
-        public Events()
-        {
-        }
         public Events(List<IVillager> villagers, int day)
         {
             ListOfVillagers = villagers;
@@ -23,14 +22,21 @@ namespace EventsLibary
         {
             Random random = new();
             int numberOfVillagerBefore = ListOfVillagers.Count;
-            int NumberOfVillagerToDied = random.Next(1, ListOfVillagers.Count + 1);
-            List<IVillager> ListToWithoutDeadPeople = ListOfVillagers.ToList();
-            for (int i = 0; i < NumberOfVillagerToDied; i++)
+            int numberOfVillagerToDied = random.Next(1, ListOfVillagers.Count + 1);
+            List<IVillager> listToWithoutDeadPeople = ListOfVillagers.ToList();
+            for (int i = 0; i < numberOfVillagerToDied; i++)
             {
-                ListToWithoutDeadPeople.Remove(ListOfVillagers[i]);
+                listToWithoutDeadPeople.Remove(ListOfVillagers[i]);
             }
-            ListOfVillagers = ListToWithoutDeadPeople.ToList();
-            LogEvents.Log($"{NumberOfVillagerToDied} Died in a naturel diesater. {numberOfVillagerBefore - NumberOfVillagerToDied} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", NumberOfDays);
+            ListOfVillagers = listToWithoutDeadPeople.ToList();
+            if (ListOfVillagers.Count != 0)
+            {
+                LogEvents.Log($"{numberOfVillagerToDied} Died in a naturel diesater. {numberOfVillagerBefore - numberOfVillagerToDied} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", NumberOfDays);
+            }
+            else
+            {
+                LogEvents.Log($"{numberOfVillagerToDied} Died in a naturel diesater. Everybody died. \n", NumberOfDays);
+            }
             LogEvents.Log("         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                          ", NumberOfDays);
             LogEvents.Log("           \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                           ", NumberOfDays);
             LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                             ", NumberOfDays);
@@ -57,12 +63,12 @@ namespace EventsLibary
 
         private void HyggeWasteTimeEvent()
         {
-            LogEvents.Log("Everybody hygged the hele day \n", NumberOfDays);
+            LogEvents.Log($"{GetVillagePopulationAsString()} hygged the hele day \n", NumberOfDays);
         }
 
         private void FestivalEvent()
         {
-            LogEvents.Log("All the villagers enjoyed a nice festival with some great artist and good music \n", NumberOfDays);
+            LogEvents.Log($"{GetVillagePopulationAsString()} enjoyed a nice festival with some great artist and good music \n", NumberOfDays);
             LogEvents.Log("                                    ;;;;;;;;;;;;;;;;;;;", NumberOfDays);
             LogEvents.Log("                                    ;;;;;;;;;;;;;;;;;;;", NumberOfDays);
             LogEvents.Log("                                    ;                 ;", NumberOfDays);
@@ -79,7 +85,7 @@ namespace EventsLibary
 
         private void LocalSportTournamentEvent()
         {
-            LogEvents.Log("Everybody enjoyed a good old football tournamant \n", NumberOfDays);
+            LogEvents.Log($"{GetVillagePopulationAsString()} enjoyed a good old football tournamant \n", NumberOfDays);
             LogEvents.Log("                         _...----.._", NumberOfDays);
             LogEvents.Log("                      ,:':::::.     `>.", NumberOfDays);
             LogEvents.Log("                    ,' |:::::;'     |:::.", NumberOfDays);
@@ -122,12 +128,12 @@ namespace EventsLibary
                     path = Environment.CurrentDirectory + "/peoplevillestory.txt";
                     break;
             }
-            LogEvents.Log("Everybody gattered around ChatGBT then it started telling a story and it went like:\n" + File.ReadAllText(path) + "\n", NumberOfDays);
+            LogEvents.Log($"{GetVillagePopulationAsString()} gattered around ChatGBT then it started telling a story and it went like:\n" + File.ReadAllText(path) + "\n", NumberOfDays);
         }
 
         private void NormaleWorkDayEvent()
         {
-            LogEvents.Log("Everbody went to work and enjoyed a normal day of work.\n", NumberOfDays);
+            LogEvents.Log($"{GetVillagePopulationAsString()} went to work and enjoyed a normal day of work.\n", NumberOfDays);
         }
 
         public void KillThatCat()
@@ -203,10 +209,10 @@ namespace EventsLibary
             }
 
             Random rnd = new();
-            int slotForVillager1 = rnd.Next(0, villager1.Inventory.Count);
-            int slotForVillager2 = rnd.Next(0, villager2.Inventory.Count);
-            Items itemFromVillager1 = villager1.Inventory[slotForVillager1];
-            Items itemFromVillager2 = villager2.Inventory[slotForVillager2];
+            int indexForVillager1 = rnd.Next(0, villager1.Inventory.Count);
+            int indexForVillager2 = rnd.Next(0, villager2.Inventory.Count);
+            Items itemFromVillager1 = villager1.Inventory[indexForVillager1];
+            Items itemFromVillager2 = villager2.Inventory[indexForVillager2];
             villager1.Inventory.Remove(itemFromVillager1);
             villager2.Inventory.Remove(itemFromVillager2);
             villager1.Inventory.Add(itemFromVillager2);
@@ -260,6 +266,19 @@ namespace EventsLibary
                 store.BuyItem(itemToSell.ID, villager, NumberOfDays);
                 return;
             }
+        }
+        public string GetVillagePopulationAsString()
+        {
+            string result;
+            if (ListOfVillagers.Count == 1)
+            {
+                result = ListOfVillagers[0].Name;
+            }
+            else
+            {
+                result = "Everybody";
+            }
+            return result;
         }
     }
 }
