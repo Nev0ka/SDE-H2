@@ -53,7 +53,7 @@ namespace PeopleVille
             Console.Clear();
             Console.WriteLine("\n\n");
             AsciiArt asciiArt = new();
-            foreach (var item in asciiArt.ListOfAsciiArt[AsciiEnums.theend])
+            foreach (var item in asciiArt.ListOfAsciiArt[AsciiEnums.TheEnd])
             {
                 Console.WriteLine(item);
             }
@@ -71,7 +71,7 @@ namespace PeopleVille
         public static void StartupFunction()
         {
             AsciiArt asciiArt = new();
-            foreach (var item in asciiArt.ListOfAsciiArt[AsciiEnums.startup])
+            foreach (var item in asciiArt.ListOfAsciiArt[AsciiEnums.StartUp])
             {
                 Console.WriteLine(item);
             }

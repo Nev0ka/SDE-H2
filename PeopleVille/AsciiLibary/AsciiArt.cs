@@ -16,14 +16,14 @@ namespace AsciiLibary
             Dictionary < AsciiEnums, List<string>> result = new();
             List<string> unFilteredArt = File.ReadAllLines(Environment.CurrentDirectory + "/AsciiArtwork.txt").ToList();
 
-            result.Add(AsciiEnums.startup,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.startup));
-            result.Add(AsciiEnums.theend,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.theend));
-            result.Add(AsciiEnums.festival,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.festival));
-            result.Add(AsciiEnums.murder,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.murder));
-            result.Add(AsciiEnums.killthatcat,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.killthatcat));
-            result.Add(AsciiEnums.rickroll,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.rickroll));
-            result.Add(AsciiEnums.sporttournament,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.sporttournament));
-            result.Add(AsciiEnums.naturaldiesater,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.naturaldiesater));
+            result.Add(AsciiEnums.StartUp,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.StartUp));
+            result.Add(AsciiEnums.TheEnd,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.TheEnd));
+            result.Add(AsciiEnums.Festival,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.Festival));
+            result.Add(AsciiEnums.Murder,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.Murder));
+            result.Add(AsciiEnums.KillThatCat,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.KillThatCat));
+            result.Add(AsciiEnums.RickRoll,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.RickRoll));
+            result.Add(AsciiEnums.SportTournament,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.SportTournament));
+            result.Add(AsciiEnums.NaturalDiesater,GetSpecifeAsciiArtFromFile(unFilteredArt, AsciiEnums.NaturalDiesater));
 
             return result;
         }
@@ -34,29 +34,29 @@ namespace AsciiLibary
             int startIndex = 0;
             switch (type)
             {
-                case AsciiEnums.startup:
-                    startIndex = art.IndexOf(AsciiEnums.startup.ToString());
+                case AsciiEnums.StartUp:
+                    startIndex = art.IndexOf(AsciiEnums.StartUp.ToString().ToLower());
                     break;
-                case AsciiEnums.theend:
-                    startIndex = art.IndexOf(AsciiEnums.theend.ToString());
+                case AsciiEnums.TheEnd:
+                    startIndex = art.IndexOf(AsciiEnums.TheEnd.ToString().ToLower());
                     break;
-                case AsciiEnums.murder:
-                    startIndex = art.IndexOf(AsciiEnums.murder.ToString());
+                case AsciiEnums.Murder:
+                    startIndex = art.IndexOf(AsciiEnums.Murder.ToString().ToLower());
                     break;
-                case AsciiEnums.killthatcat:
-                    startIndex = art.IndexOf(AsciiEnums.killthatcat.ToString());
+                case AsciiEnums.KillThatCat:
+                    startIndex = art.IndexOf(AsciiEnums.KillThatCat.ToString().ToLower());
                     break;
-                case AsciiEnums.sporttournament:
-                    startIndex = art.IndexOf(AsciiEnums.sporttournament.ToString());
+                case AsciiEnums.SportTournament:
+                    startIndex = art.IndexOf(AsciiEnums.SportTournament.ToString().ToLower());
                     break;
-                case AsciiEnums.festival:
-                    startIndex = art.IndexOf(AsciiEnums.festival.ToString());
+                case AsciiEnums.Festival:
+                    startIndex = art.IndexOf(AsciiEnums.Festival.ToString().ToLower());
                     break;
-                case AsciiEnums.naturaldiesater:
-                    startIndex = art.IndexOf(AsciiEnums.naturaldiesater.ToString());
+                case AsciiEnums.NaturalDiesater:
+                    startIndex = art.IndexOf(AsciiEnums.NaturalDiesater.ToString().ToLower());
                     break;
-                case AsciiEnums.rickroll:
-                    startIndex = art.IndexOf(AsciiEnums.rickroll.ToString());
+                case AsciiEnums.RickRoll:
+                    startIndex = art.IndexOf(AsciiEnums.RickRoll.ToString().ToLower());
                     break;
             }
 

@@ -8,13 +8,13 @@ namespace Enums
 {
     public enum AsciiEnums
     {
-        startup,
-        theend,
-        murder,
-        killthatcat,
-        sporttournament,
-        festival,
-        naturaldiesater,
-        rickroll,
+        StartUp,
+        TheEnd,
+        Murder,
+        KillThatCat,
+        SportTournament,
+        Festival,
+        NaturalDiesater,
+        RickRoll,
     }
 }

@@ -57,7 +57,7 @@ namespace ItemsLibary
                 LogEvents.Log($"{Villager.Name} killed {person}.\n", Days);
             }
             LogEvents.Log($"{Villager.Name} committed suicide after killing all those people. \n{ListOfVillagers.Count} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", Days);
-            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.murder], Days);
+            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.Murder], Days);
         }
 
         public void CutThingsWithKnife()

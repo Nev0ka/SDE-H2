@@ -38,7 +38,7 @@ namespace EventsLibary
             {
                 LogEvents.Log($"{numberOfVillagerToDied} Died in a naturel diesater. Everybody died. \n", NumberOfDays);
             }
-            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.naturaldiesater], NumberOfDays);
+            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.NaturalDiesater], NumberOfDays);
         }
 
         private void HyggeWasteTimeEvent()
@@ -49,13 +49,13 @@ namespace EventsLibary
         private void FestivalEvent()
         {
             LogEvents.Log($"{GetVillagePopulationAsString()} enjoyed a nice festival with some great artist and good music \n", NumberOfDays);
-            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.festival], NumberOfDays);
+            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.Festival], NumberOfDays);
         }
 
         private void LocalSportTournamentEvent()
         {
             LogEvents.Log($"{GetVillagePopulationAsString()} enjoyed a good old football tournamant \n", NumberOfDays);
-            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.sporttournament], NumberOfDays);
+            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.SportTournament], NumberOfDays);
         }
 
         private void StoryTellingEvent()
@@ -96,7 +96,7 @@ namespace EventsLibary
         {
             Random random = new();
             LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} killed a stray cat.\n", NumberOfDays);
-            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.killthatcat], NumberOfDays);
+            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.KillThatCat], NumberOfDays);
         }
 
         public void RickRoll()
@@ -113,7 +113,7 @@ namespace EventsLibary
             ListOfVillagers.Remove(villager1);
             LogEvents.Log($"{villager1.Name} rick rolled {villager2.Name}", NumberOfDays);
             LogEvents.Log($"So {villager2.Name} Killed {villager1.Name} because of it.", NumberOfDays);
-            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.rickroll], NumberOfDays);
+            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.RickRoll], NumberOfDays);
         }
 
         public Action GetRandomAction()
