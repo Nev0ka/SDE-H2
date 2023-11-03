@@ -14,6 +14,14 @@
             LogOfEvent.Add(message);
             ListOfEventsAndDay.Add(new KeyValuePair<int, string>(day, message));
         }
+        public static void Log(List<string> message, int day)
+        {
+            foreach (var line in message)
+            {
+                LogOfEvent.Add(line);
+                ListOfEventsAndDay.Add(new KeyValuePair<int, string>(day, line));
+            }
+        }
 
         public static void ResetLogs()
         {

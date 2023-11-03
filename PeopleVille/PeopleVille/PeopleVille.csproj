@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Simulation\Simulation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="AsciiArtwork.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

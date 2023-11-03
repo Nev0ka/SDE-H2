@@ -10,10 +10,4 @@
     <ProjectReference Include="..\Enums\Enums.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="AsciiArtwork.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

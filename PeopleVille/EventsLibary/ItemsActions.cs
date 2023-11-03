@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using AsciiLibary;
+using Enums;
 using Locations;
 using Logging;
 using Villager;
@@ -11,6 +12,8 @@ namespace ItemsLibary
         public IVillager Villager { get; set; }
         public List<IVillager> ListOfVillagers { get; set; } = new();
         public List<ILocation> ListOfLocations { get; set; } = new();
+        public AsciiArt AsciiArt { get; set; }
+
 
         public ItemsActions(int day, Village.Village village, IVillager villager)
         {
@@ -18,6 +21,7 @@ namespace ItemsLibary
             ListOfVillagers = village.Villagers;
             ListOfLocations = village.LocationsInVillage;
             Villager = villager;
+            AsciiArt = new();
             AddActionToItems();
         }
 
@@ -53,28 +57,29 @@ namespace ItemsLibary
                 LogEvents.Log($"{Villager.Name} killed {person}.\n", Days);
             }
             LogEvents.Log($"{Villager.Name} committed suicide after killing all those people. \n{ListOfVillagers.Count} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", Days);
-            LogEvents.Log("       .---.", Days);
-            LogEvents.Log("       |---|", Days);
-            LogEvents.Log("       |---|", Days);
-            LogEvents.Log("       |---|", Days);
-            LogEvents.Log("   .---^ - ^---.", Days);
-            LogEvents.Log("   :___________:", Days);
-            LogEvents.Log("      |  |//|", Days);
-            LogEvents.Log("      |  |//|", Days);
-            LogEvents.Log("      |  |//|", Days);
-            LogEvents.Log("      |  |//|", Days);
-            LogEvents.Log("      |  |//|", Days);
-            LogEvents.Log("      |  |//|", Days);
-            LogEvents.Log("      |  |.-|", Days);
-            LogEvents.Log("      |.-'**|", Days);
-            LogEvents.Log("       \\***/", Days);
-            LogEvents.Log("        \\*/", Days);
-            LogEvents.Log("         V\n", Days);
-            LogEvents.Log("        '", Days);
-            LogEvents.Log("         ^'", Days);
-            LogEvents.Log("        (_)\n\n\n", Days);
-            LogEvents.Log("    -.   ^   .-", Days);
-            LogEvents.Log("______\'.|.'/________", Days);
+            LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.murder], Days);
+            //LogEvents.Log("       .---.", Days);
+            //LogEvents.Log("       |---|", Days);
+            //LogEvents.Log("       |---|", Days);
+            //LogEvents.Log("       |---|", Days);
+            //LogEvents.Log("   .---^ - ^---.", Days);
+            //LogEvents.Log("   :___________:", Days);
+            //LogEvents.Log("      |  |//|", Days);
+            //LogEvents.Log("      |  |//|", Days);
+            //LogEvents.Log("      |  |//|", Days);
+            //LogEvents.Log("      |  |//|", Days);
+            //LogEvents.Log("      |  |//|", Days);
+            //LogEvents.Log("      |  |//|", Days);
+            //LogEvents.Log("      |  |.-|", Days);
+            //LogEvents.Log("      |.-'**|", Days);
+            //LogEvents.Log("       \\***/", Days);
+            //LogEvents.Log("        \\*/", Days);
+            //LogEvents.Log("         V\n", Days);
+            //LogEvents.Log("        '", Days);
+            //LogEvents.Log("         ^'", Days);
+            //LogEvents.Log("        (_)\n\n\n", Days);
+            //LogEvents.Log("    -.   ^   .-", Days);
+            //LogEvents.Log("______\'.|.'/________", Days);
         }
 
         public void CutThingsWithKnife()
