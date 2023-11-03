@@ -149,6 +149,10 @@ namespace EventsLibary
 
         public void RickRoll()
         {
+            if (ListOfVillagers.Count == 1)
+            {
+                return;
+            }
             Random rnd = new();
             int Villager1Index = rnd.Next(0,ListOfVillagers.Count);
             int Villager2Index = rnd.Next(0,ListOfVillagers.Count);
