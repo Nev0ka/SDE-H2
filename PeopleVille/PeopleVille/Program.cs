@@ -15,13 +15,7 @@ namespace PeopleVille
             int day = 0;
             while (true)
             {
-                //foreach (var item in LogEvents.LogOfEvent)
-                //{
-                //    Console.WriteLine(item);
-                //    Console.WriteLine("\n");
-                //}
-
-                Console.WriteLine($"Day: {day} villager: {village.Villagers.Count}\n");
+                Console.WriteLine($"Day: {day} villagers: {village.Villagers.Count}\n");
                 foreach (var item in LogEvents.ListOfEventsAndDay)
                 {
                     if (item.Key == day)
@@ -32,7 +26,7 @@ namespace PeopleVille
                 if (sim.AllVillagersIsDead)
                 {
                     Console.WriteLine($"Day {day}\n");
-                    Console.WriteLine("All the villager died.");
+                    Console.WriteLine("All the villagers died.");
                     Thread.Sleep(2000);
                     if (!TheEndFunction())
                     {
@@ -41,7 +35,7 @@ namespace PeopleVille
                     break;
                 }
                 day++;
-                Console.WriteLine("Press any button to run a event. \nPress escape to stop");
+                Console.WriteLine("Press any button for next day. \nPress escape to stop");
                 var tabKey = Console.ReadKey();
                 Console.Clear();
                 if (tabKey.Key == ConsoleKey.Escape)

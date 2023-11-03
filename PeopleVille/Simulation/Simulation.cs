@@ -17,29 +17,28 @@ namespace Simulation
         public void StartUpSim(Village.Village village)
         {
             village.CreateVillage();
-            itemsActions = new(NumberOfDays, village);
-            //itemsActions.AddActionToItems();
-            LogEvents.Log($"Village create number of villagers:{village.Villagers.Count}, number of locations: {village.LocationsInVillage.Count}");
+            LogEvents.Log($"Village created number of villagers:{village.Villagers.Count}, number of locations: {village.LocationsInVillage.Count}");
         }
 
         public void RunEvents(Village.Village village, int numberOfDays)
         {
+            Random rnd = new();
             NumberOfDays = numberOfDays;
+            int indexOfItemToUse = rnd.Next(0, village.Villagers.Count);
             if (itemsActions == null)
             {
-                itemsActions = new(numberOfDays, village);
+                itemsActions = new(numberOfDays, village, village.Villagers[indexOfItemToUse]);
             }
             itemsActions.Days = numberOfDays;
             itemsActions.ListOfVillagers = village.Villagers;
-            Random rnd = new();
             if (village.Villagers.Count != 1)
             {
                 Trade trade = new(RunTradeEvent);
                 trade(village);
             }
-            int indexOfItemToUse = rnd.Next(0, village.Villagers.Count);
-            itemsActions.Villager = village.Villagers[indexOfItemToUse];
+            
             RunItemAction(village.Villagers[indexOfItemToUse]);
+            
             if (village.Villagers != itemsActions.ListOfVillagers)
             {
                 village.Villagers = itemsActions.ListOfVillagers;

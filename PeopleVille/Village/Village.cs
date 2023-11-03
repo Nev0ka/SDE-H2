@@ -19,7 +19,7 @@ namespace Village
             }
             catch (Exception)
             {
-                throw new("Failed to load in the names for villager please check that you have a names.txt in you program output folder.");
+                throw new("Failed to load in the names for villager please check that you have a names.txt and storenames.txt in you program output folder.");
             }
             Random rnd = new();
             int numberOfVillagers = rnd.Next(200, names.Count + 1);

@@ -12,11 +12,12 @@ namespace ItemsLibary
         public List<IVillager> ListOfVillagers { get; set; } = new();
         public List<ILocation> ListOfLocations { get; set; } = new();
 
-        public ItemsActions(int day, Village.Village village)
+        public ItemsActions(int day, Village.Village village, IVillager villager)
         {
             Days = day;
             ListOfVillagers = village.Villagers;
             ListOfLocations = village.LocationsInVillage;
+            Villager = villager;
             AddActionToItems();
         }
 
@@ -166,9 +167,12 @@ namespace ItemsLibary
                 int count = 0;
                 foreach (var item in villager.Inventory.ToList())
                 {
-                    item.UseAction = GetAction(item.TypeOfItem);
-                    villager.Inventory[count] = item;
-                    count++;
+                    if (item.UseAction == null)
+                    {
+                        item.UseAction = GetAction(item.TypeOfItem);
+                        villager.Inventory[count] = item;
+                        count++;
+                    }
                 }
             }
 
@@ -178,9 +182,12 @@ namespace ItemsLibary
                 Store store = (Store)location;
                 foreach (var items in store.StoreInventory.ToList())
                 {
-                    items.UseAction = GetAction(items.TypeOfItem);
-                    store.StoreInventory[count] = items;
-                    count++;
+                    if (items.UseAction == null)
+                    {
+                        items.UseAction = GetAction(items.TypeOfItem);
+                        store.StoreInventory[count] = items;
+                        count++;
+                    }
                 }
             }
         }
