@@ -35,28 +35,28 @@ namespace AsciiLibary
             switch (type)
             {
                 case AsciiEnums.StartUp:
-                    startIndex = art.IndexOf(AsciiEnums.StartUp.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.StartUp.ToString().ToLower())+1;
                     break;
                 case AsciiEnums.TheEnd:
-                    startIndex = art.IndexOf(AsciiEnums.TheEnd.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.TheEnd.ToString().ToLower())+1;
                     break;
                 case AsciiEnums.Murder:
-                    startIndex = art.IndexOf(AsciiEnums.Murder.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.Murder.ToString().ToLower()) + 1;
                     break;
                 case AsciiEnums.KillThatCat:
-                    startIndex = art.IndexOf(AsciiEnums.KillThatCat.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.KillThatCat.ToString().ToLower()) + 1;
                     break;
                 case AsciiEnums.SportTournament:
-                    startIndex = art.IndexOf(AsciiEnums.SportTournament.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.SportTournament.ToString().ToLower()) + 1;
                     break;
                 case AsciiEnums.Festival:
-                    startIndex = art.IndexOf(AsciiEnums.Festival.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.Festival.ToString().ToLower()) + 1;
                     break;
                 case AsciiEnums.NaturalDiesater:
-                    startIndex = art.IndexOf(AsciiEnums.NaturalDiesater.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.NaturalDiesater.ToString().ToLower()) + 1;
                     break;
                 case AsciiEnums.RickRoll:
-                    startIndex = art.IndexOf(AsciiEnums.RickRoll.ToString().ToLower());
+                    startIndex = art.IndexOf(AsciiEnums.RickRoll.ToString().ToLower()) + 1;
                     break;
             }
 
