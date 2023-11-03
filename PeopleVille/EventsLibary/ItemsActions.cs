@@ -58,28 +58,6 @@ namespace ItemsLibary
             }
             LogEvents.Log($"{Villager.Name} committed suicide after killing all those people. \n{ListOfVillagers.Count} survived. \nEverybody who survived griefed and morned over their fellow villagers.\n", Days);
             LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.murder], Days);
-            //LogEvents.Log("       .---.", Days);
-            //LogEvents.Log("       |---|", Days);
-            //LogEvents.Log("       |---|", Days);
-            //LogEvents.Log("       |---|", Days);
-            //LogEvents.Log("   .---^ - ^---.", Days);
-            //LogEvents.Log("   :___________:", Days);
-            //LogEvents.Log("      |  |//|", Days);
-            //LogEvents.Log("      |  |//|", Days);
-            //LogEvents.Log("      |  |//|", Days);
-            //LogEvents.Log("      |  |//|", Days);
-            //LogEvents.Log("      |  |//|", Days);
-            //LogEvents.Log("      |  |//|", Days);
-            //LogEvents.Log("      |  |.-|", Days);
-            //LogEvents.Log("      |.-'**|", Days);
-            //LogEvents.Log("       \\***/", Days);
-            //LogEvents.Log("        \\*/", Days);
-            //LogEvents.Log("         V\n", Days);
-            //LogEvents.Log("        '", Days);
-            //LogEvents.Log("         ^'", Days);
-            //LogEvents.Log("        (_)\n\n\n", Days);
-            //LogEvents.Log("    -.   ^   .-", Days);
-            //LogEvents.Log("______\'.|.'/________", Days);
         }
 
         public void CutThingsWithKnife()

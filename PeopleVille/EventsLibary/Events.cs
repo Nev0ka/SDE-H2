@@ -39,28 +39,6 @@ namespace EventsLibary
                 LogEvents.Log($"{numberOfVillagerToDied} Died in a naturel diesater. Everybody died. \n", NumberOfDays);
             }
             LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.naturaldiesater], NumberOfDays);
-            //LogEvents.Log("         \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                          ", NumberOfDays);
-            //LogEvents.Log("           \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                           ", NumberOfDays);
-            //LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                             ", NumberOfDays);
-            //LogEvents.Log("                 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\                              ", NumberOfDays);
-            //LogEvents.Log("                   \\\\\\\\\\\\\\\\\\\\\\\\\\\\                               ", NumberOfDays);
-            //LogEvents.Log("                   \\\\\\\\\\\\\\\\\\\\\\\\\\                                ", NumberOfDays);
-            //LogEvents.Log("                   \\\\\\\\\\\\\\\\\\\\\\\\                                 ", NumberOfDays);
-            //LogEvents.Log("                  \\\\\\\\\\\\\\\\\\\\\\\\                                  ", NumberOfDays);
-            //LogEvents.Log("                 \\\\\\\\\\\\\\\\\\\\\\\\                                   ", NumberOfDays);
-            //LogEvents.Log("                \\\\\\\\\\\\\\\\\\\\\\\\                                    ", NumberOfDays);
-            //LogEvents.Log("               \\\\\\\\\\\\\\\\\\\\\\\\                                     ", NumberOfDays);
-            //LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\                                      ", NumberOfDays);
-            //LogEvents.Log("              \\\\\\\\\\\\\\\\\\\\\\\\                                      ", NumberOfDays);
-            //LogEvents.Log("         `     \\\\\\\\\\\\\\\\\\\\\\\\      `    `                         ", NumberOfDays);
-            //LogEvents.Log("            *    \\\\\\\\\\\\\\\\\\\\\\\\  *   *                            ", NumberOfDays);
-            //LogEvents.Log("     `    *    *   \\\\\\\\\\\\\\\\\\\\\\\\   *  *   `                      ", NumberOfDays);
-            //LogEvents.Log("             *   *   \\\\\\\\\\\\\\\\\\\\  *                              ", NumberOfDays);
-            //LogEvents.Log("          `    *   * \\\\\\\\\\\\\\\\\\ *   *   `                        ", NumberOfDays);
-            //LogEvents.Log("       `    `     *  \\\\\\\\\\\\\\\\   *   `_____                      ", NumberOfDays);
-            //LogEvents.Log("             \\ \\ \\ * \\\\\\\\\\\\  * /   /\\`````\\                    ", NumberOfDays);
-            //LogEvents.Log("           \\ \\ \\ \\  \\\\\\\\\\\\  / / / /  \\`````\\                   ", NumberOfDays);
-            //LogEvents.Log("         \\ \\ \\ \\ \\ \\\\\\\\\\\\ / / / / |[] | [] |\n", NumberOfDays);
         }
 
         private void HyggeWasteTimeEvent()
@@ -72,39 +50,12 @@ namespace EventsLibary
         {
             LogEvents.Log($"{GetVillagePopulationAsString()} enjoyed a nice festival with some great artist and good music \n", NumberOfDays);
             LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.festival], NumberOfDays);
-
-            //LogEvents.Log("                                    ;;;;;;;;;;;;;;;;;;;", NumberOfDays);
-            //LogEvents.Log("                                    ;;;;;;;;;;;;;;;;;;;", NumberOfDays);
-            //LogEvents.Log("                                    ;                 ;", NumberOfDays);
-            //LogEvents.Log("                                    ;                 ;", NumberOfDays);
-            //LogEvents.Log("                                    ;                 ;", NumberOfDays);
-            //LogEvents.Log("                                    ;                 ;", NumberOfDays);
-            //LogEvents.Log("                                    ;                 ;", NumberOfDays);
-            //LogEvents.Log("                                    ;                 ;", NumberOfDays);
-            //LogEvents.Log("                                    ;                 ;", NumberOfDays);
-            //LogEvents.Log("                               ,;;;;;            ,;;;;;", NumberOfDays);
-            //LogEvents.Log("                               ;;;;;;            ;;;;;;", NumberOfDays);
-            //LogEvents.Log("                               `;;;;'            `;;;;' \n", NumberOfDays);
         }
 
         private void LocalSportTournamentEvent()
         {
             LogEvents.Log($"{GetVillagePopulationAsString()} enjoyed a good old football tournamant \n", NumberOfDays);
             LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.sporttournament], NumberOfDays);
-            //LogEvents.Log("                         _...----.._", NumberOfDays);
-            //LogEvents.Log("                      ,:':::::.     `>.", NumberOfDays);
-            //LogEvents.Log("                    ,' |:::::;'     |:::.", NumberOfDays);
-            //LogEvents.Log("                   /    `'::'       :::::\\", NumberOfDays);
-            //LogEvents.Log("                  /         _____     `::;\\", NumberOfDays);
-            //LogEvents.Log("                 :         /:::::\\      `  :", NumberOfDays);
-            //LogEvents.Log("                 | ,.     /:::::::\\        |", NumberOfDays);
-            //LogEvents.Log("                 |;:::.   `::::::;'        |", NumberOfDays);
-            //LogEvents.Log("                 ::::::     `::;'      ,.  ;", NumberOfDays);
-            //LogEvents.Log("                  \\:::'              ,::::/", NumberOfDays);
-            //LogEvents.Log("                   \\                 \\:::/", NumberOfDays);
-            //LogEvents.Log("                    `.     ,:.        :;'", NumberOfDays);
-            //LogEvents.Log("                      `-.::::::..  _.''", NumberOfDays);
-            //LogEvents.Log("                         ```----'''\n", NumberOfDays);
         }
 
         private void StoryTellingEvent()
@@ -146,11 +97,6 @@ namespace EventsLibary
             Random random = new();
             LogEvents.Log($"{ListOfVillagers[random.Next(0, ListOfVillagers.Count)].Name} killed a stray cat.\n", NumberOfDays);
             LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.killthatcat], NumberOfDays);
-
-            //LogEvents.Log("                         |\\      _,,,---,,_", NumberOfDays);
-            //LogEvents.Log("                         /,`.-'`'    -.  ;-;;,_", NumberOfDays);
-            //LogEvents.Log("                        |,4-  ) )-,_. ,\\ (  `'-'", NumberOfDays);
-            //LogEvents.Log("                       '---''(_/--'  `-'\\_)  \n", NumberOfDays);
         }
 
         public void RickRoll()
@@ -168,39 +114,6 @@ namespace EventsLibary
             LogEvents.Log($"{villager1.Name} rick rolled {villager2.Name}", NumberOfDays);
             LogEvents.Log($"So {villager2.Name} Killed {villager1.Name} because of it.", NumberOfDays);
             LogEvents.Log(AsciiArt.ListOfAsciiArt[AsciiEnums.rickroll], NumberOfDays);
-
-            //LogEvents.Log("........................................................................„-~~'''''''~~--„„_", NumberOfDays);
-            //LogEvents.Log("..................................................................„-~''-,:::::::::::::::::::''-„", NumberOfDays);
-            //LogEvents.Log("..............................................................,~''::::::::',::::::::::::::::::::|',", NumberOfDays);
-            //LogEvents.Log("..............................................................|::::::,-~'''¯¯¯''''~~--~'''¯'''-,:|", NumberOfDays);
-            //LogEvents.Log("..............................................................'|:::::|: : : : : : : : : : : : : |,'", NumberOfDays);
-            //LogEvents.Log("..............................................................|:::::|: : :-~~---: : : -----: |", NumberOfDays);
-            //LogEvents.Log(".............................................................(¯''~-': : : :'¯°: ',: :|: :°-: :|", NumberOfDays);
-            //LogEvents.Log(".............................................................'''~-,|: : : : : : ~---': : : :,'", NumberOfDays);
-            //LogEvents.Log(".................................................................|,: : : : : :-~~--: : ::/", NumberOfDays);
-            //LogEvents.Log("..............................................................,-''\':\\: :'~„„_: : : : : _,-'", NumberOfDays);
-            //LogEvents.Log("........................................................__„-';;;;;\\:''-,: : : :'~---~''/|", NumberOfDays);
-            //LogEvents.Log("................................................__„-~'';;;;;;/;;;;;;;\\: :\\: : : ______/: :',__", NumberOfDays);
-            //LogEvents.Log("..................................„-~~~''''¯;;;;;;;;;;;;;;;;;;;;;;;;;',. .''-,:|::::::|. . |;;;;''-„__", NumberOfDays);
-            //LogEvents.Log("................................/;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;\\. . .''|::::::|. .,';;;;;;;;;;''-„", NumberOfDays);
-            //LogEvents.Log(".............................,';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;|;;;;;;;;;;;\\. . .\\:::::/,'. ./|;;;;;;;;;;;;;|", NumberOfDays);
-            //LogEvents.Log(".........................,-'';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;\\;;;;;;;;;;;',: : :|¯¯|. . .|;;;;;;;;;,';;|", NumberOfDays);
-            //LogEvents.Log(".......................„-\";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;',;;;;;;;;;;;\\. . |:::|. . .'',;;;;;;;;|;;/", NumberOfDays);
-            //LogEvents.Log("....................../;;;;;;;;;;;;;;;;;;;;;;;;;;|;;;;;;;;;;;;;;\\;;;;;;;;;;;\\. .|:::|. . . |;;;;;;;;|/", NumberOfDays);
-            //LogEvents.Log(".................../;;,-';;;;;;;;;;;;;;;;;;;;;;,';;;;;;;;;;;;;;;;;,;;;;;;;;;;|. .\\:/. . . .|;;;;;;;;|", NumberOfDays);
-            //LogEvents.Log(".................../;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;'',: |;|. . . . \\;;;;;;;|", NumberOfDays);
-            //LogEvents.Log("................„~'';;;;;;;;;;;;;;;;;;;;;,-'';;;;;;;;;;;;;;;;;;;;;;;;;;\\;;;;;;;;|.|;|. . . . .|;;;;;;;|", NumberOfDays);
-            //LogEvents.Log("...........„~'';;;;;;;;;;;;;;;;;;;;;;,-';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;',;;;;;;| |:|. . . . |\\;;;;;;;|", NumberOfDays);
-            //LogEvents.Log("..........,';;;;;;;;;;;;;;;;;;;;;;;;/;;;,-';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;;| |:|. . . .'|;;',;;;;;|", NumberOfDays);
-            //LogEvents.Log("........|;,-';;;;;;;;;;;;;;;;;;;,-';;;,-';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;;;| |:|. . .,';;;;;',;;;;|_", NumberOfDays);
-            //LogEvents.Log("........./;;;;;;;;;;;;;;;;;,-'_;;;;;;,';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;|;;;;|.|:|. . .|;;;;;;;|;;;;|''''~-„", NumberOfDays);
-            //LogEvents.Log("......./;;;;;;;;;;;;;;;;;;/¯'',;;;,';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;,;;| |:|. . ./;;;;;;;;|;;;|;;;;;;|-„„__", NumberOfDays);
-            //LogEvents.Log("......./;;;;;;;;;;;;;;;;;,-'.|;;,;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;| |:|._,-';;;;;;;;;|;;;;|;;;;;;;;;;;'''-„_", NumberOfDays);
-            //LogEvents.Log("...../;;;;;;;;;;;;;;;;,-'..,';;,;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;|.|:|::::'''~--~'''||;;;;;|;;;;;;;;;;,-~''''~--„______", NumberOfDays);
-            //LogEvents.Log(".....,';;;;;;;;;;;;;;;;,'../;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;|.|:|::::::::::::::|;;;;;',;;;;;;;;;''-,: : : : : :'''~-,:'''~~--„", NumberOfDays);
-            //LogEvents.Log("..../;;;;;;;;;;;;;;;,-'..,';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;|:|:|::::::::::::::',;;;;;;|¯''''~--„„-~---„„___„-~~'''__''~-\"", NumberOfDays);
-            //LogEvents.Log(",-';;;;;;;;;;;;;;;,'..../ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;|:|:|:::::::::::::::|;;;;;", NumberOfDays);
-            //LogEvents.Log("/;;;;;;;;;;;;;;;;/...,-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;|:|:|:::::::::::::::|;;;", NumberOfDays);
         }
 
         public Action GetRandomAction()

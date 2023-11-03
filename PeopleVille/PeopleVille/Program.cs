@@ -57,14 +57,6 @@ namespace PeopleVille
             {
                 Console.WriteLine(item);
             }
-            //Console.WriteLine("  ██████████████  ██          ██      ██████████            ██████████    ██           ██    ██████████    ");
-            //Console.WriteLine("        ██        ██          ██      ██                    ██            ████         ██    ██      ████  ");
-            //Console.WriteLine("        ██        ██          ██      ██                    ██            ██  ██       ██    ██        ████");
-            //Console.WriteLine("        ██        ██████████████      ██                    ██            ██    ██     ██    ██          ██");
-            //Console.WriteLine("        ██        ██          ██      ██████████            ██████████    ██     ██    ██    ██          ██");
-            //Console.WriteLine("        ██        ██          ██      ██                    ██            ██       ██  ██    ██        ████");
-            //Console.WriteLine("        ██        ██          ██      ██                    ██            ██         ████    ██      ████  ");
-            //Console.WriteLine("        ██        ██          ██      ██████████            ██████████    ██           ██    ██████████    ");
             Thread.Sleep(3500);
             Console.WriteLine("\n\n                                           Press enter to continue");
             Console.ReadLine();
@@ -83,13 +75,6 @@ namespace PeopleVille
             {
                 Console.WriteLine(item);
             }
-            //Console.WriteLine("                                                 _");
-            //Console.WriteLine(" __                   ___                       ( )");
-            //Console.WriteLine("|\"\"|  ___    _   __  |\"\"\"|  __                   `");
-            //Console.WriteLine("|\"\"| |\"\"\"|  |\"| |\"\"| |\"\"\"| |\"\"|        _._ _");
-            //Console.WriteLine("|\"\"| |\"\"\"|  |\"| |\"\"| |\"\"\"| |\"\"|       (__((_(");
-            //Console.WriteLine("|\"\"| |\"\"\"|  |\"| |\"\"| |\"\"\"| |\"\"|      \\'-:--:-.");
-            //Console.WriteLine("\"'''\"''\"'\"\"'\"\"\"''\"''''\"\"\"'\"\"'\"\"'~~~~~~'-----'~~~~  ");
             Console.WriteLine("       Press any button to start");
             Console.ReadKey();
             Console.Clear();
